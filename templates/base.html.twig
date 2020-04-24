@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en-EN">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
@@ -19,7 +19,7 @@
 {% block body %}
     <div class="uk-container-expand uk-flex" data-uk-grid>
         {% block left_sidebar %}
-            <div class="left-sidebar uk-width-1-6@s">
+            <div class="left-sidebar uk-width-1-6@s uk-visible@s">
                 {% block  sidebar_logo %}
                     <div class="sidebar-logo">
                     </div>
@@ -34,11 +34,8 @@
                 {% endblock %}
             </div>
         {% endblock %}
-        <div class="content">
-
-
+        <div class="content uk-width-expand@s">
             {% block content %}
-
             {% endblock %}
         </div>
     </div>
