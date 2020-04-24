@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
@@ -24,6 +25,7 @@ class Category
     private $category;
 
     /**
+     * @Gedmo\Slug(fields={"category"}, updatable=false, separator="-")
      * @ORM\Column(type="string", length=100)
      */
     private $slug;
@@ -34,11 +36,13 @@ class Category
     private $description;
 
     /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modifiedAt;
@@ -49,7 +53,9 @@ class Category
     private $isEnabled;
 
     /**
+     * @Gedmo\Blameable(on="create")
      * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="categories")
+     * @ORM\JoinColumn(name="created_by_id", referencedColumnName="id")
      */
     private $createdBy;
 
