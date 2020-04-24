@@ -1,0 +1,16 @@
+//
+// Core
+//
+@import "variables.scss";
+@import "components/_import.scss";
+
+.uk-content {
+  background-color: #f0f0f0;
+}
+
+
+.CodeMirror { height: auto; border: 1px solid #ddd; box-shadow: 0 3px 10px rgba(0,0,0,0.8);}
+.CodeMirror-scroll { max-height: 200px; }
+.CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+
+
