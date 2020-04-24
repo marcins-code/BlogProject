@@ -69,6 +69,11 @@ class Category
      */
     private $children;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $icon;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -209,5 +214,17 @@ class Category
     public function __toString()
     {
         return  $this->getCategory();
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
     }
 }
