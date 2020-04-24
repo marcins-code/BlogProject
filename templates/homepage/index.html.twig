@@ -2,32 +2,6 @@
 
 {% block title %}Hello HomepageController!{% endblock %}
 
-{% block body %}
-{#    {{ parent() }}#}
-    <div class="uk-width-1-2@s uk-width-2-5@m uk-padding">
-        {{ main_menu }}
-        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
-            <li class=""><a href="#">Item</a></li>
-            <li class="uk-parent uk-active">
-                <a href="#">Parent</a>
-                <ul class="uk-nav-default uk-nav-parent-icon uk-nav-sub" uk-nav="multiple: false">
-                    <li><a href="#">Sub item</a></li>
-                    <li class="uk-parent uk-active">
-                        <a href="#">Sub parent</a>
-                        <ul class="uk-nav-sub">
-                            <li class="uk-active"><a href="#">Sub sub item</a></li>
-                            <li><a href="#">Sub sub item</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="uk-parent">
-                <a href="#">Parent</a>
-                <ul class="uk-nav-sub">
-                    <li><a href="#">Sub  item</a></li>
-                    <li><a href="#">Sub  item</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+{% block content %}
+
 {% endblock %}
