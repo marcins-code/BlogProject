@@ -1,0 +1,12 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block label %}
+    {% if item.extra('icon_before') is not null %}
+        <i class="{{ item.extra('icon_before') }}"></i>
+    {% endif %}
+    {{ parent() }}
+    {% if item.extra('icon_after') is not null %}
+        <i class="{{ item.extra('icon_after') }}"></i>
+    {% endif %}
+{% endblock %}
+

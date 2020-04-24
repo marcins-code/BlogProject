@@ -1,3 +1,10 @@
+
+{% set main_menu %}
+    {{ knp_menu_render('main', {'template': 'themes/sidebarnemu.html.twig', 'allow_safe_labels': true, 'currentClass': 'active'})|raw }}
+{% endset %}
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +19,7 @@
     </head>
     <body>
         {% block body %}
-
+            {{ main_menu }}
 
 
 

@@ -25,7 +25,7 @@ class Category
     private $category;
 
     /**
-     * @Gedmo\Slug(fields={"category"}, updatable=false, separator="-")
+     * @Gedmo\Slug(fields={"category"}, updatable=true, separator="-")
      * @ORM\Column(type="string", length=100)
      */
     private $slug;
@@ -50,7 +50,7 @@ class Category
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isEnabled;
+    private $isEnabled = true;
 
     /**
      * @Gedmo\Blameable(on="create")
@@ -144,9 +144,9 @@ class Category
         return $this->isEnabled;
     }
 
-    public function setIsEnabled(bool $isEnbaled): self
+    public function setIsEnabled(?bool $isEnabled): self
     {
-        $this->isEnbaled = $isEnbaled;
+        $this->isEnabled = $isEnabled;
 
         return $this;
     }
@@ -204,5 +204,10 @@ class Category
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return  $this->getCategory();
     }
 }

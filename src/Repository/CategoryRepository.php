@@ -19,6 +19,17 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+
+    public function findOnlyMainCategories($slug)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id != :val')
+//            ->andWhere('c.parent IS NULL')
+            ->setParameter(':val', $slug)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Category[] Returns an array of Category objects
     //  */

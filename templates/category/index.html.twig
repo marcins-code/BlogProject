@@ -10,10 +10,11 @@
             <tr>
                 <th>Id</th>
                 <th>Category</th>
-                <th>Slug</th>
-                <th>Description</th>
-                <th>CreatedAt</th>
-                <th>ModifiedAt</th>
+                <th>Parent</th>
+                <th>Parent</th>
+                <th>Created By</th>
+                <th>Created</th>
+                <th>Modified</th>
                 <th>IsEnabled</th>
                 <th>actions</th>
             </tr>
@@ -23,10 +24,11 @@
             <tr>
                 <td>{{ category.id }}</td>
                 <td>{{ category.category }}</td>
-                <td>{{ category.slug }}</td>
-                <td>{{ category.description }}</td>
-                <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ category.modifiedAt ? category.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ category.parent }}</td>
+                <td>{{ (category.children.count) }}</td>
+                <td>{{ category.createdBy }}</td>
+                <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>
+                <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
                 <td>{{ category.isEnabled ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
