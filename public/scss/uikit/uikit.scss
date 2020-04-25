@@ -48,3 +48,19 @@
 }
 
 
+.content{
+  padding-right: 30px;
+}
+
+.uk-table-hover>tr:hover, .uk-table-hover tbody tr:hover {
+  background: $black-10;
+}
+
+.uk-table-divider>tr:not(:first-child), .uk-table-divider>:not(:first-child)>tr, .uk-table-divider>:first-child>tr:not(:first-child) {
+  border-top: 1px solid $white-30
+}
+
+
+.uk-table-striped>tr:nth-of-type(odd), .uk-table-striped tbody tr:nth-of-type(odd) {
+  background: $white-02;
+}
