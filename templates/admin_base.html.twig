@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% set admin_menu %}
+    {{ knp_menu_render('admin', {'template': 'themes/sidebarnemu.html.twig', 'allow_safe_labels': true, 'currentClass': 'uk-active'})|raw }}
+{% endset %}
+
+       {% block sidebar_menu %}
+           <div class="sidebar-menu">
+               {{ admin_menu }}
+           </div>
+       {% endblock %}

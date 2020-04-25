@@ -1,8 +1,6 @@
 {% set main_menu %}
     {{ knp_menu_render('main', {'template': 'themes/sidebarnemu.html.twig', 'allow_safe_labels': true, 'currentClass': 'uk-active'})|raw }}
 {% endset %}
-
-
 <!DOCTYPE html>
 <html lang="en-EN">
 <head>
@@ -32,8 +30,16 @@
                 {% endblock %}
                 {% block sidebar_menu %}
                     <div class="sidebar-menu">
-                    {{ main_menu }}
+                        {{ main_menu }}
                     </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="sidebar-menu">
+                            <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
+                                <li class="first"><a href="/admin/category"> <i class="fas fa-user-alt"></i> Admin</a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endif %}
                 {% endblock %}
             </div>
         {% endblock %}
