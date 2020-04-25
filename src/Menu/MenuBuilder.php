@@ -44,7 +44,10 @@ class MenuBuilder implements ContainerAwareInterface
     public function mainMenu(array $options)
     {
         $this->menu = $this->factory->createItem('root')->setChildrenAttributes(['class' => 'uk-nav-default uk-nav-parent-icon', 'uk-nav' => "multiple: false"]);
-        $this->menu->addChild('Home', array('route' => 'homepage'));
+        $this->menu->addChild('Home', [
+            'route' => 'homepage',
+            'extras'=>['icon_before' => 'fas fa-house-damage'],
+            ]);
 
 //        $em = $this->container->get('doctrine')->getManager();
         $categoriesRoute = 'categories';
@@ -81,7 +84,9 @@ class MenuBuilder implements ContainerAwareInterface
 // If page doesn't have a parent, and no menuItem was passed then this is a top level add.
             if (empty($page->getParent()) && empty($menuItem))
                 $parentMenu = $this->menu->addChild($page->getCategory(),
-                    ['uri' => $page->getSlug(),])
+                    ['uri' => $page->getSlug(),
+                        'extras'=>['icon_before' => $page->getIcon()],
+                        ])
                     ->setLinkAttributes(['class' => 'uk-parent']);
 
 // if the current page's parent is === supplied parent, go deeper
