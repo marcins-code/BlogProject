@@ -45,7 +45,7 @@ class MenuBuilder implements ContainerAwareInterface
             'extras' => ['icon_before' => 'fas fa-house-damage'],
         ]);
 
-        $pages = $this->repository->findAll();
+        $pages = $this->repository->findEnabledCategories();
 
         try {
             $this->buildPageTree($pages);

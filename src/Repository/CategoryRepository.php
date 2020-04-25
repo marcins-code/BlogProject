@@ -30,6 +30,15 @@ class CategoryRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findEnabledCategories()
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.isEnabled = true')
+            ->orderBy('e.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Category[] Returns an array of Category objects
     //  */
