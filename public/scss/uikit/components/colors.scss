@@ -1,0 +1,127 @@
+// Color system
+
+$white: #fff !default;
+$gray-100: #d4d5d6 !default;
+$gray-200: #e9ecef !default;
+$gray-300: #bdc1c5 !default;
+$gray-400: #969ca2 !default;
+$gray-500: #747b83 !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+//black tranparent
+$black-90: rgba($black, .9) !default;
+$black-80: rgba($black, .8) !default;
+$black-70: rgba($black, .7) !default;
+$black-60: rgba($black, .6) !default;
+$black-50: rgba($black, .5) !default;
+$black-40: rgba($black, .4) !default;
+$black-30: rgba($black, .3) !default;
+$black-20: rgba($black, .2) !default;
+$black-10: rgba($black, .1) !default;
+$black-00: rgba($black, 0) !default;
+
+//white tranparent
+$white-90: rgba($white, .9) !default;
+$white-80: rgba($white, .8) !default;
+$white-70: rgba($white, .7) !default;
+$white-60: rgba($white, .6) !default;
+$white-50: rgba($white, .5) !default;
+$white-40: rgba($white, .4) !default;
+$white-30: rgba($white, .3) !default;
+$white-20: rgba($white, .2) !default;
+$white-10: rgba($white, .1) !default;
+$white-00: rgba($white, 0) !default;
+
+$grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+                (
+                        "100": $gray-100,
+                        "200": $gray-200,
+                        "300": $gray-300,
+                        "400": $gray-400,
+                        "500": $gray-500,
+                        "600": $gray-600,
+                        "700": $gray-700,
+                        "800": $gray-800,
+                        "900": $gray-900
+                ),
+                $grays
+);
+
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc260e !default;
+$orange: #fd7e14 !default;
+$yellow: rgb(219, 200, 3) !default;
+$green: #28a745 !default;
+$teal: #1ca77d !default;
+$cyan: #17a2b8 !default;
+
+
+$colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+                (
+                        "blue": $blue,
+                        "indigo": $indigo,
+                        "purple": $purple,
+                        "pink": $pink,
+                        "red": $red,
+                        "orange": $orange,
+                        "yellow": $yellow,
+                        "green": $green,
+                        "teal": $teal,
+                        "cyan": $cyan,
+                        "white": $white,
+                        "gray": $gray-600,
+                        "gray-dark": $gray-800
+                ),
+                $colors
+);
+
+
+//Theme colors
+$primary:     #0081cf !default;
+$complement:  complement($primary) !default;
+$secondary:   #5f3d37 !default;
+$success:     $teal !default;
+$warning:     $yellow !default;
+$danger:      $red !default;
+$light:       #adadad !default;
+$dark:        #3E4756 !default;
+$info:        $cyan !default;
+
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+                (
+                        "primary": $primary,
+                        "complement": #D2514E,
+                        "secondary": $secondary,
+                        "success": $success,
+                        "warning": $warning,
+                        "danger": $danger,
+                        "light": $light,
+                        "dark": $dark
+                ),
+                $theme-colors
+);
+
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 140 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $gray-900 !default;
+$yiq-text-light: $white !default;

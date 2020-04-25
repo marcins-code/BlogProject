@@ -16,14 +16,11 @@ $base-body-font-family:                          $global-font-family !default;
 $base-body-font-weight:                          normal !default;
 $base-body-font-size:                            $global-font-size !default;
 $base-body-line-height:                          $global-line-height !default;
-$base-body-color:                                $global-color !default;
+$base-body-color:                                $gray-200 !default;
 
 
 
-body {
-  min-height: 100vh;
-  background-image: url("/images/background/body-linen.jpg");
-}
+
 
 
 $base-link-color:                                $global-link-color !default;
@@ -108,7 +105,9 @@ html {
     /* 2 */
     -webkit-text-size-adjust: 100%;
     /* 3 */
-    background: $base-body-background;
+    background: $global-background-gradient, $global-background-image;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed;
     color: $base-body-color;
     @if(mixin-exists(hook-base-body)) {@include hook-base-body();}
 }
@@ -117,7 +116,7 @@ html {
  * Remove the margin in all browsers.
  */
 
-body { margin: 0; }
+body { margin: 0; min-height: 100vh}
 
 
 /* Links
