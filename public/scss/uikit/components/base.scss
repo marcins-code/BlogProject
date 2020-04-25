@@ -105,8 +105,9 @@ html {
     /* 2 */
     -webkit-text-size-adjust: 100%;
     /* 3 */
-    background: $global-background-gradient, $global-background-image;
-    background-repeat: no-repeat, repeat;
+    //background-color: $global-background;
+    background: $global-background-image,$global-background-gradient;
+    background-repeat: repeat, no-repeat;
     background-attachment: fixed;
     color: $base-body-color;
     @if(mixin-exists(hook-base-body)) {@include hook-base-body();}

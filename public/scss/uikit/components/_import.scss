@@ -1,12 +1,12 @@
 // Base
-@import "variables.scss";
 @import "colors.scss";
+@import "variables.scss";
 @import "mixin.scss";
 @import "base.scss";
 
 // Elements
 @import "link.scss";
-@import "heading.scss";
+//@import "heading.scss";
 @import "divider.scss";
 @import "list.scss";
 @import "description-list.scss";
