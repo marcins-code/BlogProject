@@ -7,6 +7,7 @@ use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,8 +40,8 @@ class CategoryFormType extends AbstractType
         }
 
         $builder
-            ->add('category', TextType::class,[
-                'required'=>false,
+            ->add('category', TextType::class, [
+                'required' => false,
             ])
             ->add('icon')
             ->add('description')
@@ -50,6 +51,18 @@ class CategoryFormType extends AbstractType
                 'choices' => $this->repository->findOnlyMainCategories($cat_id),
                 'placeholder' => 'choose',
                 'required' => false
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Save',
+                'attr' => ['class' => 'uk-button-success uk-button uk-width-1-1']
+            ])
+            ->add('save_exit', SubmitType::class, [
+                'label' => 'Save and exit',
+                'attr' => ['class' => 'uk-button-info uk-button uk-width-1-1']
+            ])
+            ->add('save_new', SubmitType::class, [
+                'label' => 'Save and new',
+                'attr' => ['class' => 'uk-button-complement uk-button uk-width-1-1']
             ]);
     }
 

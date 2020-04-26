@@ -1,4 +1,31 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'base.html.twig' %}
+{#{% block title %}{{ wefwef }}{%  %}#}
+{% block left_sidebar %}
+{% endblock %}
+    {% block content %}
+        {{ form_start(form) }}
+        <div data-uk-grid>
+            <div class="uk-width-1-6@m">
+                <div data-uk-sticky>
+                    {{ form_row(form.save) }}
+                    {{ form_row(form.save_exit) }}
+                    {{ form_row(form.save_new) }}
+                </div>
+            </div>
+            <div class="uk-width-expand@m">
+                <div data-uk-grid class="uk-child-width-expand@m">
+                    {{ form_row(form.category) }}
+                    {{ form_row(form.icon) }} `
+                    {{ form_row(form.parent) }}
+                    {{ form_row(form.isEnabled) }}
+                </div>
+                <div data-uk-grid>
+                    <div class="uk-width-expand">
+                        {{ form_row(form.description) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    {% endblock %}
+

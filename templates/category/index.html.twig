@@ -1,17 +1,25 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}Category index{% endblock %}
+{% block title %}Categories{% endblock %}
 
 {% block content %}
-    <h1>Category index</h1>
+    <div data-uk-grid class="uk-margin-small-top">
+        <div>
+            <h1>Categories</h1>
+        </div>
+        <div class="uk-width-expand">
+            <a class="uk-button uk-button-complement uk-float-right" href="{{ path('category_new') }}">New category</a>
+        </div>
+    </div>
 
+    <hr/>
     <table class="uk-table uk-table-divider uk-table-hover uk-table-striped">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Category</th>
                 <th>Parent</th>
-                <th>Parent</th>
+                <th>Icon</th>
                 <th>Created By</th>
                 <th>Created</th>
                 <th>Modified</th>
@@ -25,14 +33,16 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.category }}</td>
                 <td>{{ category.parent }}</td>
-                <td>{{ (category.children.count) }}</td>
+                <td><i class="{{ category.icon }} fa-2x"></i></td>
                 <td>{{ category.createdBy }}</td>
                 <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>
                 <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
                 <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>
                 <td>
-                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                    <a class="uk-button uk-button-info uk-button-small" href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
+                    <a class="uk-button uk-button-success uk-button-small uk-margin-small-left"  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>
+                    <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" disabled  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-trash-alt"></i></button>
+
                 </td>
             </tr>
         {% else %}
@@ -43,5 +53,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('category_new') }}">Create new</a>
+
 {% endblock %}
