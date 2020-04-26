@@ -5,17 +5,18 @@
     {% block content %}
         {{ form_start(form) }}
         <div data-uk-grid>
-            <div class="uk-width-1-6@m">
+            <div class="uk-width-1-6@m form-buttons">
                 <div data-uk-sticky>
                     {{ form_row(form.save) }}
                     {{ form_row(form.save_exit) }}
                     {{ form_row(form.save_new) }}
+                    <a class="uk-button uk-button-danger" href="{{ path('category_index') }}"><i class="far fa-times-circle"></i> Exit</a>
                 </div>
             </div>
             <div class="uk-width-expand@m">
                 <div data-uk-grid class="uk-child-width-expand@m">
                     {{ form_row(form.category) }}
-                    {{ form_row(form.icon) }} `
+                    {{ form_row(form.icon) }}
                     {{ form_row(form.parent) }}
                     {{ form_row(form.isEnabled) }}
                 </div>
@@ -26,6 +27,7 @@
                 </div>
             </div>
         </div>
+
         {{ form_end(form) }}
     {% endblock %}
 

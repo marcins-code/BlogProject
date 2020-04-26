@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\Helper\ButtonClickRedirect;
 
 /**
  * @Route("/admin/category")
@@ -39,12 +40,25 @@ class CategoryController extends AbstractController
             $entityManager->persist($category);
             $entityManager->flush();
 
-            return $this->redirectToRoute('category_index');
+            if ($form->get('save')->isClicked()) {
+                return $this->redirectToRoute('category_edit', ['id' => $category->getId()]);
+            }
+
+            if ($form->get('save_close')->isClicked()) {
+
+                return $this->redirectToRoute('category_index');
+            }
+
+            if ($form->get('save_new')->isClicked()) {
+
+                return $this->redirectToRoute('category_new');
+            }
         }
 
         return $this->render('category/new.html.twig', [
             'category' => $category,
             'form' => $form->createView(),
+            'title'=>'New category'
         ]);
     }
 
@@ -69,7 +83,15 @@ class CategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('category_index');
+            if ($form->get('save_exit')->isClicked()) {
+
+                return $this->redirectToRoute('category_index');
+            }
+
+            if ($form->get('save_new')->isClicked()) {
+
+                return $this->redirectToRoute('category_new');
+            }
         }
 
         return $this->render('category/edit.html.twig', [

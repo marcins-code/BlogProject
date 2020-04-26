@@ -3,15 +3,19 @@
 namespace App\Form;
 
 use App\Entity\Category;
+use App\Form\Type\SwitcherType;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class CategoryFormType extends AbstractType
 {
@@ -41,11 +45,14 @@ class CategoryFormType extends AbstractType
 
         $builder
             ->add('category', TextType::class, [
-                'required' => false,
+                'required' => true,
+
             ])
             ->add('icon')
             ->add('description')
-            ->add('isEnabled')
+            ->add('isEnabled', SwitcherType::class,[
+                'required'=>false,
+            ] )
             ->add('parent', EntityType::class, [
                 'class' => Category::class,
                 'choices' => $this->repository->findOnlyMainCategories($cat_id),
@@ -54,15 +61,18 @@ class CategoryFormType extends AbstractType
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Save',
-                'attr' => ['class' => 'uk-button-success uk-button uk-width-1-1']
+                'icon_before' => 'far fa-save',
+                'attr' => ['class' => 'uk-button-dark uk-button ']
             ])
             ->add('save_exit', SubmitType::class, [
                 'label' => 'Save and exit',
-                'attr' => ['class' => 'uk-button-info uk-button uk-width-1-1']
+                'icon_before' => 'fas fa-sign-out-alt',
+                'attr' => ['class' => 'uk-button-dark uk-button']
             ])
             ->add('save_new', SubmitType::class, [
                 'label' => 'Save and new',
-                'attr' => ['class' => 'uk-button-complement uk-button uk-width-1-1']
+                'icon_before' => 'far fa-plus-square',
+                'attr' => ['class' => 'uk-button-dark uk-button']
             ]);
     }
 
@@ -73,3 +83,4 @@ class CategoryFormType extends AbstractType
         ]);
     }
 }
+
