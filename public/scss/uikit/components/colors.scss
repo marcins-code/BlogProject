@@ -60,7 +60,7 @@ $purple: #6f42c1 !default;
 $pink: #d63384 !default;
 $red: #dc260e !default;
 $orange: #af5814 !default;
-$yellow: rgb(145, 129, 3) !default;
+$yellow: rgb(203, 129, 27) !default;
 $green: #28a745 !default;
 $teal: #1ca77d !default;
 $cyan: #17a2b8 !default;
@@ -111,7 +111,8 @@ $theme-colors: map-merge(
                         "warning": $warning,
                         "danger": $danger,
                         "light": $light,
-                        "dark": $dark
+                        "dark": $dark,
+                        "info":$info
                 ),
                 $theme-colors
 );
