@@ -7,36 +7,48 @@
 //.uk-content {
 //  background-color: #f0f0f0;
 //}
-
 //$global-background-image:                        url('../images/backgrounds/page2.png') !default;
-.CodeMirror { height: auto; border: 1px solid #ddd; box-shadow: 0 3px 10px rgba(0,0,0,0.8);}
-.CodeMirror-scroll { max-height: 200px; }
-.CodeMirror pre { padding-left: 7px; line-height: 1.25; }
-.left-sidebar{
+.CodeMirror {
+  height: auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.CodeMirror-scroll {
+  max-height: 200px;
+}
+
+.CodeMirror pre {
+  padding-left: 7px;
+  line-height: 1.25;
+}
+
+.left-sidebar {
   min-width: 250px;
 
 
-    .sidebar-user{
+  .sidebar-user {
     font-size: 2rem;
     font-weight: bold;
-      padding: 10px !important;
-      text-align: center;
+    padding: 10px !important;
+    text-align: center;
   }
 
-  .sidebar-menu{
+  .sidebar-menu {
     margin: 10px;
     padding: 20px;
-    background:$black-20;
+    background: $black-20;
     //box-shadow: 0 0 15px 2px  #cc2255;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 0 5px rgba(0,0,0,0.3);
-    border: 1px solid rgba(0,0,0,0.25);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     min-width: 180px;
-    .uk-nav-default>li>a {
+
+    .uk-nav-default > li > a {
       color: $base-body-color !important;
     }
 
-    .uk-nav-default>li.uk-active>a>i {
+    .uk-nav-default > li.uk-active > a > i {
       color: $blue !important;
     }
 
@@ -48,19 +60,28 @@
 }
 
 
-.content{
+
+
+.content {
   padding-right: 30px;
 }
 
-.uk-table-hover>tr:hover, .uk-table-hover tbody tr:hover {
+.uk-table-hover > tr:hover, .uk-table-hover tbody tr:hover {
   background: $black-10;
 }
 
-.uk-table-divider>tr:not(:first-child), .uk-table-divider>:not(:first-child)>tr, .uk-table-divider>:first-child>tr:not(:first-child) {
+.uk-table-divider > tr:not(:first-child), .uk-table-divider > :not(:first-child) > tr, .uk-table-divider > :first-child > tr:not(:first-child) {
   border-top: 1px solid $white-30
 }
 
 
-.uk-table-striped>tr:nth-of-type(odd), .uk-table-striped tbody tr:nth-of-type(odd) {
+.uk-table-striped > tr:nth-of-type(odd), .uk-table-striped tbody tr:nth-of-type(odd) {
   background: $white-02;
 }
+
+.uk-button {
+  box-shadow: 0 0 1px $black-90 inset, 0 3px 3px $black-50,  -1px -1px 4px $black-50,  0px 0px 4px 4px rgba($gray-400, .7);
+
+}
+
+

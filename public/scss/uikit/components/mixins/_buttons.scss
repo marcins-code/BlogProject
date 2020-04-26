@@ -1,0 +1,40 @@
+@mixin buttons-make(
+  $background,
+  $border:$background,
+   $hover-background: darken($background, 5%),
+   $color:color-yiq(darken($hover-background,15%)),
+
+  $hover-border: darken($border, 10%),
+  $hover-color: color-yiq($hover-background)
+  //$active-background: darken($background, 10%),
+  //$active-border: darken($border, 12.5%),
+  //$active-color: color-yiq($active-background)
+) {
+  color: $color;
+  text-shadow: rgba(0,0,0,.5) 1px 1px;
+  @include bg-gradient-make($background);
+  border-color: $border;
+
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    color: darken($color, 10%);
+    background: fade_out($background, 0.3) !important;
+    border-color: $border;
+    cursor: not-allowed;
+    text-shadow: lighten($background,10%) 1px 1px;
+
+  }
+
+  &:not(:disabled):not(.disabled):hover {
+    @include bg-gradient-make($hover-background);
+    color: $hover-color;
+
+  }
+
+  //&:not(:disabled):not(.disabled):active
+  //{
+  //  box-shadow: darken($background, 20%) 0px 2px 2px;
+  //}
+}
