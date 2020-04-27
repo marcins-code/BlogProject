@@ -1,8 +1,8 @@
 // Color system
 
 $white: #fff !default;
-$gray-100: #d4d5d6 !default;
-$gray-200: #e9ecef !default;
+$gray-100: #f0f0f0 !default;
+$gray-200: #e3e6e9 !default;
 $gray-300: #bdc1c5 !default;
 $gray-400: #969ca2 !default;
 $gray-500: #747b83 !default;
@@ -95,7 +95,7 @@ $secondary:   #5f3d37 !default;
 $warning:     $yellow !default;
 $danger:      $red !default;
 $success:     $green !default;
-$light:       #adadad !default;
+$light:       $gray-200 !default;
 $dark:        $gray-800 !default;
 $info:        $cyan !default;
 
