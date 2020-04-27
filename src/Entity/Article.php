@@ -61,6 +61,11 @@ class Article
      */
     private $movies = [];
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $slug;
+
 
 
 
@@ -174,6 +179,18 @@ class Article
     public function setMovies(?array $movies): self
     {
         $this->movies = $movies;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
