@@ -39,7 +39,7 @@ $breakpoint-large-max:                          ($breakpoint-xlarge - 1) !defaul
 //
 
 $global-font-family:                             -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$global-font-size:                               0.9rem !default;
+$global-font-size:                               0.95rem !default;
 $global-line-height:                             1.5 !default;      // 24px
 
 $global-xxlarge-font-size:                       2.625rem !default; // 42px
@@ -52,7 +52,7 @@ $global-small-font-size:                         0.875rem !default; // 14px
 // Colors
 //
 
-$global-color:                                   $gray-300 !default;
+$global-color:                                   $gray-700 !default;
 $global-emphasis-color:                          $gray-300 !default;
 $global-muted-color:                             $gray-700 !default;
 
@@ -66,8 +66,8 @@ $global-inverse-color:                           #fff !default;
 //
 
 $global-background:                              $gray-800 !default;
-$global-background-image:                        url('../images/backgrounds/body.png') !default;
-$global-background-gradient:                     linear-gradient(to bottom, rgba($gray-900,.9) 0%,rgba($gray-800,1) 100%) !default;
+$global-background-image:                        url('../images/backgrounds/page.png') !default;
+$global-background-gradient:                     linear-gradient(to bottom, rgba($gray-200,.2) 0%,rgba($gray-200,.5) 100%) !default;
 $global-muted-background:                        #f8f8f8 !default;
 $global-primary-background:                      #1e87f0 !default;
 $global-secondary-background:                    #222 !default;

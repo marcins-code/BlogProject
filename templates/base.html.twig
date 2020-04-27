@@ -18,19 +18,21 @@
 {% block body %}
     <div class="uk-container-expand uk-flex" data-uk-grid>
         {% block left_sidebar %}
-            <div class="left-sidebar uk-width-1-6@s uk-visible@s">
+            <div class="left-sidebar uk-width-1-6@s uk-visible@s ">
                 {% block  sidebar_logo %}
                     <div class="sidebar-logo">
                         <a href="{{ path('homepage') }}"><h5>marcins-blog</h5></a>
                     </div>
                 {% endblock %}
                 {% block  sidebar_user %}
-                    <div class="sidebar-user">
+                    <div class="sidebar-user ">
+                        <h2 class="uk-margin-remove-bottom">
                         {{ app.user }}
+                        </h2>
                     </div>
                 {% endblock %}
                 {% block sidebar_menu %}
-                    <div class="sidebar-menu">
+                    <div class="sidebar-menu card-primary">
                         {{ main_menu }}
                     </div>
                     {% if is_granted('ROLE_ADMIN') %}
@@ -46,7 +48,10 @@
         {% endblock %}
         <div class="content uk-width-expand@s">
             {% block content %}
+
             {% endblock %}
+        </div>
+        <div class="left-sidebar uk-width-1-6@s uk-visible@m">
         </div>
     </div>
 {% endblock %}

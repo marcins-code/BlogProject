@@ -16,6 +16,8 @@
 
 
 
+
+
 .CodeMirror-scroll {
   max-height: 200px;
 }
@@ -39,19 +41,20 @@
   .sidebar-menu {
     margin: 10px;
     padding: 20px;
-    background: $black-20;
+    //background: $black-20;
     //box-shadow: 0 0 15px 2px  #cc2255;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 5px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    //border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     min-width: 180px;
 
     .uk-nav-default > li > a {
-      color: $base-body-color !important;
+      color: $base-body-color;
+      &:hover i  { color: $complement !important}
     }
 
     .uk-nav-default > li.uk-active > a > i {
-      color: $blue !important;
+      color: $complement !important;
     }
 
     > * {
@@ -177,4 +180,36 @@ input:checked + .uk-switch-slider.uk-switch-big:before {
 /* Inverse Modifier - affects only default */
 .uk-light .uk-switch-slider:not(.uk-switch-on-off) {
   background-color: rgba(255,255,255,0.22);
+}
+
+
+body{
+  //
+  //background-color: #efe2c9;
+  //background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+
+  background-color: #efe2c9;
+  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+
+.card-primary{
+  background: linear-gradient(to bottom, rgba($dark,.6) 0%,rgba($dark,.45) 50%, rgba($dark,.6) 100%);
+
+  * {
+    color:$white !important;
+    text-shadow: 1px 1px 2px $black-90;
+  }
+  color:$gray-200 ;
+}
+
+
+
+h2 {
+  color: $secondary;
+  font-weight: bold;
+  text-shadow: 0 2px 0 rgba(255,255,255,0.5);
 }
