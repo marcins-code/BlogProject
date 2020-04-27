@@ -22,7 +22,7 @@ class CategoryController extends AbstractController
     public function index(CategoryRepository $categoryRepository): Response
     {
         return $this->render('category/index.html.twig', [
-            'categories' => $categoryRepository->findBy([],['id'=>'ASC']),
+            'categories' => $categoryRepository->findBy([], ['id' => 'ASC']),
         ]);
     }
 
@@ -58,7 +58,7 @@ class CategoryController extends AbstractController
         return $this->render('category/new.html.twig', [
             'category' => $category,
             'form' => $form->createView(),
-            'title'=>'New category'
+            'title' => 'New category'
         ]);
     }
 
@@ -97,7 +97,7 @@ class CategoryController extends AbstractController
         return $this->render('category/edit.html.twig', [
             'category' => $category,
             'form' => $form->createView(),
-            'title'=>'Edit category'
+            'title' => 'Edit category'
         ]);
     }
 
@@ -106,7 +106,7 @@ class CategoryController extends AbstractController
      */
     public function delete(Request $request, Category $category): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $category->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($category);
             $entityManager->flush();
