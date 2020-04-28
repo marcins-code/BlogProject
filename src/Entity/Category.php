@@ -5,8 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Proxies\__CG__\App\Entity\Users;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -58,12 +58,7 @@ class Category
      */
     private $isEnabled = true;
 
-    /**
-     * @Gedmo\Blameable(on="create")
-     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="categories")
-     * @ORM\JoinColumn(name="created_by_id", referencedColumnName="id")
-     */
-    private $createdBy;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="children")
@@ -79,6 +74,18 @@ class Category
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $icon;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users")
+     * @JoinColumn(name="created_by_id", referencedColumnName="id")
+     */
+    private $createdBy;
+
+
+
+    public function __construct()
+    {
+    }
 
 
     public function getId(): ?int
@@ -158,17 +165,7 @@ class Category
         return $this;
     }
 
-    public function getCreatedBy(): ?Users
-    {
-        return $this->createdBy;
-    }
 
-    public function setCreatedBy(?Users $createdBy): self
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
 
     public function getParent(): ?self
     {
@@ -229,4 +226,18 @@ class Category
 
         return $this;
     }
+
+    public function getCreatedBy(): ?Users
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?Users $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+
 }
