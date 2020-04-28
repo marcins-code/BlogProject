@@ -58,8 +58,6 @@ class Category
      */
     private $isEnabled = true;
 
-
-
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="children")
      */
@@ -76,15 +74,22 @@ class Category
     private $icon;
 
     /**
+     * @Gedmo\Blameable(on="create")
      * @ORM\ManyToOne(targetEntity="App\Entity\Users")
      * @JoinColumn(name="created_by_id", referencedColumnName="id")
      */
     private $createdBy;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
+     */
+    private $articles;
+
 
 
     public function __construct()
     {
+        $this->articles = new ArrayCollection();
     }
 
 
@@ -235,6 +240,37 @@ class Category
     public function setCreatedBy(?Users $createdBy): self
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getCategory() === $this) {
+                $article->setCategory(null);
+            }
+        }
 
         return $this;
     }

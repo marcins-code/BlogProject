@@ -2,23 +2,18 @@
 
 namespace App\Form;
 
+use App\Entity\Article;
 use App\Entity\Category;
 use App\Form\Type\SwitcherType;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 
-class CategoryFormType extends AbstractType
+class ArticleType extends AbstractType
 {
 
     /**
@@ -33,40 +28,21 @@ class CategoryFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        $request = Request::createFromGlobals();
-        $path = $request->getPathInfo();
-        $pattern = '/^\/admin\/category\/edit\//';
-        if (preg_match($pattern, $path)) {
-            $cat_id = preg_replace($pattern, '', $path);
-        } else {
-
-            $cat_id = 0;
-        }
-
         $builder
-            ->add('category', TextType::class, [
-                'required' => true,
-//                'placeholder'=>'Enter'
-            'attr'=>['placeholder'=>'Input category name'],
-
-            ])
-            ->add('icon', TextType::class, [
+            ->add('title', TextType::class, [
                 'required'=>false,
-                'attr'=>['placeholder'=>'Input category icon']
-            ] )
-            ->add('description', TextareaType::class, [
-                'attr'=>['class'=>'codemirror'],
+            ])
+            ->add('category', EntityType::class, [
+                'class'=>Category::class,
+                'choices'=>$this->repository->findEnabledCategories(),
+                'placeholder'=>'choose category',
+                'required'=>false,
+            ])
+            ->add('content',null, [
+                'attr'=>['class'=>'codemirror']
+            ])
+            ->add('isPublished', SwitcherType::class, [
                 'required'=>false
-            ])
-            ->add('isEnabled', SwitcherType::class,[
-                'required'=>false,
-            ] )
-            ->add('parent', EntityType::class, [
-                'class' => Category::class,
-                'choices' => $this->repository->findOnlyMainCategories($cat_id),
-                'placeholder' => 'none',
-                'required' => false
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Save',
@@ -83,13 +59,13 @@ class CategoryFormType extends AbstractType
                 'icon_before' => 'far fa-plus-square',
                 'attr' => ['class' => 'uk-button-info']
             ]);
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Category::class,
+            'data_class' => Article::class,
         ]);
     }
 }
-

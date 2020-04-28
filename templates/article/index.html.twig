@@ -1,0 +1,47 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block content %}
+    <div data-uk-grid class="uk-margin-small-top">
+        <div>
+            <h1>Articles</h1>
+        </div>
+        <div class="uk-width-expand">
+            <a class="uk-button uk-button-complement uk-float-right" href="{{ path('article_new') }}">New article</a>
+        </div>
+    </div>
+
+    <hr/>
+    <table class="uk-table uk-table-divider uk-table-hover uk-table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td><i class="{{ article.category ? article.category.icon|raw : ''}}"></i> {{ article.category }}</td>
+                <td>{{ article.author }}</td>
+                <td>
+                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_new') }}">Create new</a>
+{% endblock %}

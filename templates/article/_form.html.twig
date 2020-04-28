@@ -1,3 +1,11 @@
+{#{{ form_start(form) }}#}
+{#    {{ form_widget(form) }}#}
+{#{{ form_row(form.title) }}#}
+{#{{ form_row(form.category) }}#}
+{#<button class="btn">{{ button_label|default('Save') }}</button>#}
+{#{{ form_end(form) }}#}
+
+
 {% extends 'base.html.twig' %}
 {% block left_sidebar %}
 {% endblock %}
@@ -10,21 +18,27 @@
                         {{ form_row(form.save) }}
                         {{ form_row(form.save_exit) }}
                         {{ form_row(form.save_new) }}
-                        <a class="uk-button uk-button-danger" href="{{ path('category_index') }}"><i
+                        <a class="uk-button uk-button-danger" href="{{ path('article_index') }}"><i
                                     class="far fa-times-circle"></i> Exit</a>
                     </div>
                 </div>
             </div>
             <div class="uk-width-expand@m">
-                <div data-uk-grid class="uk-child-width-expand@m">
-                    {{ form_row(form.category) }}
-                    {{ form_row(form.icon) }}
-                    {{ form_row(form.parent) }}
-                    {{ form_row(form.isEnabled) }}
-                </div>
                 <div data-uk-grid>
                     <div class="uk-width-expand">
-                        {{ form_row(form.description) }}
+                        {{ form_row(form.title) }}
+                    </div>
+                    <div class="uk-width-1-4">
+                        {{ form_row(form.category) }}
+                    </div>
+                    <div class="uk-width-1-4">
+                        {{ form_row(form.isPublished) }}
+                    </div>
+                </div>
+
+                <div data-uk-grid>
+                    <div class="uk-width-expand">
+                        {{ form_row(form.content) }}
                     </div>
                 </div>
             </div>
@@ -60,30 +74,34 @@
 
     <script>
 
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var codemirrorInstance = [];
-        var foundtextareasarr = document.getElementsByClassName('codemirror');
-        for(var i = 0; foundtextareasarr[i]; ++i) {
-            codemirrorInstance[i] = CodeMirror.fromTextArea(foundtextareasarr[i], {
-                lineNumbers: true,
-                autoCloseTags: true,
-                viewportMargin: Infinity,
-                theme:'github',
-                mode: 'htmlmixed',
-                tags: {
-                    style: [["type", /^text\/(x-)?scss$/, "text/x-scss"],
-                        [null, null, "css"]],
-                    custom: [[null, null, "customMode"]]
-                },
-                lineWrapping: true,
-                extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
-                foldGutter: true,
-                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var codemirrorInstance = [];
+            var foundtextareasarr = document.getElementsByClassName('codemirror');
+            for (var i = 0; foundtextareasarr[i]; ++i) {
+                codemirrorInstance[i] = CodeMirror.fromTextArea(foundtextareasarr[i], {
+                    lineNumbers: true,
+                    autoCloseTags: true,
+                    viewportMargin: Infinity,
+                    theme: 'github',
+                    mode: 'htmlmixed',
+                    tags: {
+                        style: [["type", /^text\/(x-)?scss$/, "text/x-scss"],
+                            [null, null, "css"]],
+                        custom: [[null, null, "customMode"]]
+                    },
+                    lineWrapping: true,
+                    extraKeys: {
+                        "Ctrl-Q": function (cm) {
+                            cm.foldCode(cm.getCursor());
+                        }
+                    },
+                    foldGutter: true,
+                    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
 
 
-            });
-        }
-    });
+                });
+            }
+        });
 
 
         // var textareas = document.querySelectorAll(".codemirror");
