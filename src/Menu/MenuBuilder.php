@@ -63,14 +63,15 @@ class MenuBuilder implements ContainerAwareInterface
     {
         $menu = $this->factory->createItem('root')->setChildrenAttributes(['class' => 'uk-nav-default', 'data-uk-nav' => '']);
 
+        $menu->addChild('Articles', [
+            'route' => 'article_index',
+            'extras'=>['icon_before'=>'far fa-newspaper']
+        ]);
         $menu->addChild('Categories', [
             'route' => 'category_index',
             'extras'=>['icon_before'=>'fas fa-stream']
             ]);
-        $menu->addChild('Articles', [
-            'route' => 'category_index',
-            'extras'=>['icon_before'=>'far fa-newspaper']
-            ]);
+
 
         return $menu;
     }

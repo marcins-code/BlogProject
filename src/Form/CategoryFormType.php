@@ -10,6 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -54,7 +55,9 @@ class CategoryFormType extends AbstractType
                 'required'=>false,
                 'attr'=>['placeholder'=>'Input category icon']
             ] )
-            ->add('description')
+            ->add('description', TextareaType::class, [
+                'attr'=>['class'=>'codemirror'],
+            ])
             ->add('isEnabled', SwitcherType::class,[
                 'required'=>false,
             ] )
