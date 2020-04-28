@@ -46,9 +46,14 @@ class CategoryFormType extends AbstractType
         $builder
             ->add('category', TextType::class, [
                 'required' => true,
+//                'placeholder'=>'Enter'
+            'attr'=>['placeholder'=>'Input category name'],
 
             ])
-            ->add('icon')
+            ->add('icon', TextType::class, [
+                'required'=>false,
+                'attr'=>['placeholder'=>'Input category icon']
+            ] )
             ->add('description')
             ->add('isEnabled', SwitcherType::class,[
                 'required'=>false,
@@ -56,7 +61,7 @@ class CategoryFormType extends AbstractType
             ->add('parent', EntityType::class, [
                 'class' => Category::class,
                 'choices' => $this->repository->findOnlyMainCategories($cat_id),
-                'placeholder' => 'choose',
+                'placeholder' => 'none',
                 'required' => false
             ])
             ->add('save', SubmitType::class, [

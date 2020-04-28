@@ -40,16 +40,16 @@ $form-line-height:                               $form-height !default;
 $form-padding-horizontal:                        10px !default;
 $form-padding-vertical:                          4px !default;
 
-$form-background:                                $global-muted-background !default;
-$form-color:                                     $global-color !default;
+$form-background:                                $black-00 !default;
+$form-color:                                     lighten($global-color,10%) !default;
 
-$form-focus-background:                          $global-muted-background !default;
+$form-focus-background:                          $black-00 !default;
 $form-focus-color:                               $global-color !default;
 
 $form-disabled-background:                       $global-muted-background !default;
 $form-disabled-color:                            $global-muted-color !default;
 
-$form-placeholder-color:                         $global-muted-color !default;
+$form-placeholder-color:                         $gray-400 !default;
 
 $form-small-height:                              $global-control-small-height !default;
 $form-small-padding-horizontal:                  8px !default;
@@ -240,6 +240,7 @@ $internal-form-checkbox-indeterminate-image: "data:image/svg+xml;charset=UTF-8,%
     width: 100%;
     /* 3 */
     border: 0 none;
+    border-bottom: solid 1px rgba($secondary, 0.5);
     /* 4 */
     padding: 0 $form-padding-horizontal;
     background: $form-background;
@@ -287,7 +288,9 @@ $internal-form-checkbox-indeterminate-image: "data:image/svg+xml;charset=UTF-8,%
     outline: none;
     background-color: $form-focus-background;
     color: $form-focus-color;
-    @if(mixin-exists(hook-form-focus)) {@include hook-form-focus();}
+    @if(mixin-exists(hook-form-focus)) {@include hook-form-focus();
+
+    }
 }
 
 /* Disabled */
