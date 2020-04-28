@@ -15,9 +15,6 @@
 }
 
 
-
-
-
 .CodeMirror-scroll {
   max-height: 200px;
 }
@@ -38,20 +35,24 @@
     text-align: center;
   }
 
+
   .sidebar-menu {
     margin: 10px;
-    padding: 20px;
+    //padding: 10px;
     //background: $black-20;
     //box-shadow: 0 0 15px 2px  #cc2255;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 5px rgba(0, 0, 0, 0.3);
-    border: 1px solid $black-10;
-    border-radius: 20px;
-    min-width: 180px;
-    text-shadow: 1px 1px 3px $black-30;
+    //box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 5px rgba(0, 0, 0, 0.3);
+    //border: 1px solid $black-10;
+    //border-radius: 20px;
+    //min-width: 180px;
+    //text-shadow: 1px 1px 3px $black-30;
 
     .uk-nav-default > li > a {
       color: $base-body-color;
-      &:hover i  { color: $complement !important}
+
+      &:hover i {
+        color: $complement !important
+      }
     }
 
     .uk-nav-default > li.uk-active > a > i {
@@ -64,8 +65,6 @@
     }
   }
 }
-
-
 
 
 .content {
@@ -90,23 +89,45 @@
 //}
 
 
-hr{
+hr {
   border-color: $gray-700;
 }
 
-.form-buttons {
+.uk-form-buttons {
+  .uk-card {
+    padding: 0;
 
-  .uk-button {
-    //box-shadow: 0 0 0 4px rgba($white,0.15);
-    margin: .5rem 0.7rem;
-    width: 80%;
-    //border: solid 5px $white-10;
-    &-save{
-      i {color: $success}
+    .uk-card-body {
+      padding: 0;
+
+      .uk-button {
+        //box-shadow: 0 0 0 4px rgba($white,0.15);
+        margin: .5rem 0.7rem;
+        width: 100%;
+        margin: 0px auto;
+        box-shadow: none;
+
+
+        //border: solid 5px $white-10;
+        &-success {
+          border-radius: 10px 10px 0 0;
+        }
+
+        &-info {
+          border-radius: 0;
+        }
+        &-danger {
+          border-radius: 0 0 10px 10px;
+        }
+      }
     }
   }
 }
 
+.uk-button{
+  box-shadow:  0px 0px 3px 4px rgba($black,0.25), 0 0 3px $black-30 inset ;
+  //border: solid 1px $black-50;
+}
 
 
 
@@ -124,11 +145,12 @@ Switch */
 
 /* Hide default HTML checkbox */
 .uk-switch input {
-  display:none;
+  display: none;
 }
+
 /* Slider */
 .uk-switch-slider {
-  background-color: rgba(0,0,0,0.22);
+  background-color: rgba(0, 0, 0, 0.22);
   position: absolute;
   top: 0;
   left: 0;
@@ -138,8 +160,9 @@ Switch */
   cursor: pointer;
   transition-property: background-color;
   transition-duration: .2s;
-  box-shadow: inset 0 0 2px rgba(0,0,0,0.07);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.07);
 }
+
 /* Switch pointer */
 .uk-switch-slider:before {
   content: '';
@@ -153,10 +176,12 @@ Switch */
   transition-property: transform, box-shadow;
   transition-duration: .2s;
 }
+
 /* Slider active color */
 input:checked + .uk-switch-slider {
   background-color: #39f !important;
 }
+
 /* Pointer active animation */
 input:checked + .uk-switch-slider:before {
   transform: translateX(26px);
@@ -166,6 +191,7 @@ input:checked + .uk-switch-slider:before {
 .uk-switch-slider.uk-switch-on-off {
   background-color: #f0506e;
 }
+
 input:checked + .uk-switch-slider.uk-switch-on-off {
   background-color: #32d296 !important;
 }
@@ -173,20 +199,23 @@ input:checked + .uk-switch-slider.uk-switch-on-off {
 /* Style Modifier */
 .uk-switch-slider.uk-switch-big:before {
   transform: scale(1.2);
-  box-shadow: 0 0 6px rgba(0,0,0,0.22);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.22);
 }
+
 .uk-switch-slider.uk-switch-small:before {
-  box-shadow: 0 0 6px rgba(0,0,0,0.22);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.22);
 }
+
 input:checked + .uk-switch-slider.uk-switch-big:before {
   transform: translateX(26px) scale(1.2);
 }
 
 /* Inverse Modifier - affects only default */
 .uk-light .uk-switch-slider:not(.uk-switch-on-off) {
-  background-color: rgba(255,255,255,0.22);
+  background-color: rgba(255, 255, 255, 0.22);
 }
-body{
+
+body {
   //
   //background-color: #efe2c9;
   //background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
@@ -197,7 +226,6 @@ body{
   background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
-
 
 
 //
@@ -212,9 +240,8 @@ body{
 //}
 
 
-
 h2 {
   color: $secondary;
   font-weight: bold;
-  text-shadow: 0 2px 0 rgba(255,255,255,0.5);
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
 }

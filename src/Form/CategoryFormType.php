@@ -62,17 +62,17 @@ class CategoryFormType extends AbstractType
             ->add('save', SubmitType::class, [
                 'label' => 'Save',
                 'icon_before' => 'far fa-save',
-                'attr' => ['class' => 'uk-button-dark uk-button ']
+                'attr' => ['class' => 'uk-button-success']
             ])
             ->add('save_exit', SubmitType::class, [
                 'label' => 'Save and exit',
                 'icon_before' => 'fas fa-sign-out-alt',
-                'attr' => ['class' => 'uk-button-dark uk-button']
+                'attr' => ['class' => 'uk-button-info']
             ])
             ->add('save_new', SubmitType::class, [
                 'label' => 'Save and new',
                 'icon_before' => 'far fa-plus-square',
-                'attr' => ['class' => 'uk-button-dark uk-button']
+                'attr' => ['class' => 'uk-button-info']
             ]);
     }
 

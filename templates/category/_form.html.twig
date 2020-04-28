@@ -4,13 +4,16 @@
 {% endblock %}
     {% block content %}
         {{ form_start(form) }}
-        <div data-uk-grid>
-            <div class="uk-width-1-6@m uk-card uk-background-dark">
-                <div data-uk-sticky>
-                    {{ form_row(form.save) }}
-                    {{ form_row(form.save_exit) }}
-                    {{ form_row(form.save_new) }}
-                    <a class="uk-button uk-button-danger" href="{{ path('category_index') }}"><i class="far fa-times-circle"></i> Exit</a>
+        <div data-uk-grid class="uk-padding-small">
+            <div class="uk-width-1-6@m uk-form-buttons">
+                <div class="uk-card">
+                    <div class="uk-card-body uk-background-dark">
+                        {{ form_row(form.save) }}
+                        {{ form_row(form.save_exit) }}
+                        {{ form_row(form.save_new) }}
+                        <a class="uk-button uk-button-danger" href="{{ path('category_index') }}"><i
+                                    class="far fa-times-circle"></i> Exit</a>
+                    </div>
                 </div>
             </div>
             <div class="uk-width-expand@m">

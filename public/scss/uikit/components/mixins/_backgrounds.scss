@@ -1,5 +1,5 @@
 @mixin bg-gradient-make( $color) {
-  background: $color linear-gradient(180deg, $color, darken($color,9%)) repeat-x !important;
+  background: $color linear-gradient(180deg, $color, darken($color,5%)) repeat-x !important;
 }
 
 @mixin bg-gradient-3-make ($color){

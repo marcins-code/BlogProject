@@ -90,7 +90,11 @@ $card-large-footer-padding-vertical-l:          round($global-large-gutter / 2) 
 .uk-card {
     position: relative;
     box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 5px rgba(0, 0, 0, 0.3);
+    //border: 1px solid $black-10;
     @if(mixin-exists(hook-card)) {@include hook-card();}
+    overflow: hidden;
 }
 
 
@@ -100,11 +104,15 @@ $card-large-footer-padding-vertical-l:          round($global-large-gutter / 2) 
 .uk-card-body {
     padding: $card-body-padding-vertical $card-body-padding-horizontal;
     @if(mixin-exists(hook-card-body)) {@include hook-card-body();}
+
+    overflow: hidden;
 }
 
 .uk-card-header {
     padding: $card-header-padding-vertical $card-header-padding-horizontal;
     @if(mixin-exists(hook-card-header)) {@include hook-card-header();}
+    //overflow: hidden;
+    position: relative;
 }
 
 .uk-card-footer {
@@ -112,16 +120,16 @@ $card-large-footer-padding-vertical-l:          round($global-large-gutter / 2) 
     @if(mixin-exists(hook-card-footer)) {@include hook-card-footer();}
 }
 
-/* Desktop and bigger */
-@media (min-width: $breakpoint-large) {
-
-    .uk-card-body { padding: $card-body-padding-vertical-l $card-body-padding-horizontal-l; }
-
-    .uk-card-header { padding: $card-header-padding-vertical-l $card-header-padding-horizontal-l; }
-
-    .uk-card-footer { padding: $card-footer-padding-vertical-l $card-footer-padding-horizontal-l; }
-
-}
+///* Desktop and bigger */
+//@media (min-width: $breakpoint-large) {
+//
+//    .uk-card-body { padding: $card-body-padding-vertical-l $card-body-padding-horizontal-l; }
+//
+//    .uk-card-header { padding: $card-header-padding-vertical-l $card-header-padding-horizontal-l; }
+//
+//    .uk-card-footer { padding: $card-footer-padding-vertical-l $card-footer-padding-horizontal-l; }
+//
+//}
 
 /*
  * Micro clearfix
