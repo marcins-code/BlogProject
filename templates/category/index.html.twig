@@ -13,7 +13,9 @@
     </div>
 
     <hr/>
-    <table class="uk-table uk-table-divider uk-table-hover uk-table-striped">
+<div class="uk-card">
+    <div class="uk-card-body uk-background-secondary">
+    <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small uk-table-justify">
         <thead>
             <tr>
                 <th>Id</th>
@@ -33,7 +35,7 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.category }}</td>
                 <td>{{ category.parent }}</td>
-                <td><i class="{{ category.icon }} fa-2x"></i></td>
+                <td><i class="{{ category.icon }}"></i></td>
                 <td>{{ category.createdBy }}</td>
                 <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>
                 <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
@@ -52,4 +54,6 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
+</div>
 {% endblock %}
