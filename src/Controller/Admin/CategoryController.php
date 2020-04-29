@@ -29,7 +29,7 @@ class CategoryController extends AbstractController
     /**
      * @Route("/new", name="category_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, ButtonClickRedirect $clickRedirect): Response
     {
         $category = new Category();
         $form = $this->createForm(CategoryFormType::class, $category);
@@ -43,6 +43,7 @@ class CategoryController extends AbstractController
             if ($form->get('save')->isClicked()) {
                 return $this->redirectToRoute('category_edit', ['id' => $category->getId()]);
             }
+
 
             if ($form->get('save_close')->isClicked()) {
 
