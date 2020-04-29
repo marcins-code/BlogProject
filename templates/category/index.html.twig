@@ -1,20 +1,22 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}Categories{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block content %}
-    <div data-uk-grid class="uk-margin-small-top">
-        <div>
-            <h1>Categories</h1>
-        </div>
-        <div class="uk-width-expand">
-            <a class="uk-button uk-button-success uk-float-right" href="{{ path('category_new') }}">New category</a>
-        </div>
-    </div>
-
-    <hr/>
-    <div class="uk-card">
+    <div class="uk-card uk-margin-small-top ">
         <div class="uk-card-body uk-background-secondary">
+            <div data-uk-grid>
+                <div>
+                    <h1 class="admin-header"><i class="fas fa-stream"></i> Categories </h1 cl>
+                </div>
+                <div class="uk-width-expand">
+                    <a class="uk-button uk-button-success uk-float-right" href="{{ path('category_new') }}">New
+                        category</a>
+                </div>
+            </div>
+
+            <hr/>
+
             <div class="count">
                 {{ pagination.getTotalItemCount }}
             </div>

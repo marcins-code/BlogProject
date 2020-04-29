@@ -3,9 +3,11 @@
 {% block title %}Article index{% endblock %}
 
 {% block content %}
-    <div data-uk-grid class="uk-margin-small-top">
+    <div class="uk-card uk-margin-small-top">
+        <div class="uk-card-body uk-background-secondary ">
+    <div data-uk-grid >
         <div>
-            <h1>Articles</h1>
+            <h1 class="admin-header"><i class="far fa-newspaper"></i> Articles</h1>
         </div>
         <div class="uk-width-expand">
             <a class="uk-button uk-button-complement uk-float-right" href="{{ path('article_new') }}">New article</a>
@@ -13,8 +15,7 @@
     </div>
 
     <hr/>
-    <div class="uk-card">
-        <div class="uk-card-body uk-background-secondary">
+
             <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small">
                 <thead>
                 <tr>

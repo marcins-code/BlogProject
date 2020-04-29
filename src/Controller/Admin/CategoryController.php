@@ -34,6 +34,7 @@ class CategoryController extends AbstractController
 
         return $this->render('category/index.html.twig', [
             'pagination' => $pagination,
+            'title'=>'Categories'
         ]);
     }
 
