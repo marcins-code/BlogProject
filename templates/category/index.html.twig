@@ -13,47 +13,77 @@
     </div>
 
     <hr/>
-<div class="uk-card">
-    <div class="uk-card-body uk-background-secondary">
-    <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small uk-table-justify">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Category</th>
-                <th>Parent</th>
-                <th>Icon</th>
-                <th>Created By</th>
-                <th>Created</th>
-                <th>Modified</th>
-                <th>IsEnabled</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.category }}</td>
-                <td>{{ category.parent }}</td>
-                <td><i class="{{ category.icon }}"></i></td>
-                <td>{{ category.createdBy }}</td>
-                <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>
-                <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
-                <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>
-                <td>
-                    <a class="uk-button uk-button-info uk-button-small" href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
-                    <a class="uk-button uk-button-success uk-button-small uk-margin-small-left"  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>
-                    <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" disabled  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-trash-alt"></i></button>
+    <div class="uk-card">
+        <div class="uk-card-body uk-background-secondary">
+            <div class="count">
+                {{ pagination.getTotalItemCount }}
+            </div>
+            <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small uk-table-justify">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Category</th>
+                    <th>Parent</th>
+                    <th>Icon</th>
+                    <th>Created By</th>
+                    <th>Created</th>
+                    <th>Modified</th>
+                    <th>IsEnabled</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in pagination %}
+                    <tr>
+                        <td>{{ category.id }}</td>
+                        <td>{{ category.category }}</td>
+                        <td>{{ category.parent }}</td>
+                        <td><i class="{{ category.icon }}"></i></td>
+                        <td>{{ category.createdBy }}</td>
+                        <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>
+                        <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
+                        <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>
+                        <td>
+                            <a class="uk-button uk-button-info uk-button-small"
+                               href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
+                            <a class="uk-button uk-button-success uk-button-small uk-margin-small-left"
+                               href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>
+                            <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" disabled
+                                    href="{{ path('category_edit', {'id': category.id}) }}"><i
+                                        class="far fa-trash-alt"></i></button>
 
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+                {#        {% for category in categories %}#}
+                {#            <tr>#}
+                {#                <td>{{ category.id }}</td>#}
+                {#                <td>{{ category.category }}</td>#}
+                {#                <td>{{ category.parent }}</td>#}
+                {#                <td><i class="{{ category.icon }}"></i></td>#}
+                {#                <td>{{ category.createdBy }}</td>#}
+                {#                <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>#}
+                {#                <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>#}
+                {#                <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>#}
+                {#                <td>#}
+                {#                    <a class="uk-button uk-button-info uk-button-small" href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>#}
+                {#                    <a class="uk-button uk-button-success uk-button-small uk-margin-small-left"  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>#}
+                {#                    <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" disabled  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-trash-alt"></i></button>#}
+
+                {#                </td>#}
+                {#            </tr>#}
+                {#        {% else %}#}
+                {#            <tr>#}
+                {#                <td colspan="8">no records found</td>#}
+                {#            </tr>#}
+                {#        {% endfor %}#}
+                </tbody>
+            </table>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
