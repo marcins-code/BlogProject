@@ -41,7 +41,7 @@ class MenuBuilder implements ContainerAwareInterface
     {
         $this->menu = $this->factory->createItem('root')->setChildrenAttributes(['class' => 'uk-nav-default uk-nav-parent-icon', 'uk-nav' => "multiple: false"]);
         $this->menu->addChild('Home', [
-            'route' => 'homepage',
+            'route' => 'articles_pages',
             'extras' => ['icon_before' => 'fas fa-house-damage'],
         ]);
 
@@ -106,7 +106,8 @@ class MenuBuilder implements ContainerAwareInterface
                         ->setLabelAttribute('label', 'wefewf')
                         ->setAttributes(['class' => 'uk-parent', 'label' => 'wefwef'])
                         ->addChild($page->getCategory(),
-                            ['uri' => $page->getSlug(),
+                            [   'route' => 'article_categories',
+                                'routeParameters' => ['slug'=>$page->getSlug()],
 
                             ])->setLinkAttributes(['class' => count($page->getChildren()),]);
 

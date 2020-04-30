@@ -19,6 +19,16 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function findArticlesByCategorySlug($slug)
+    {
+        return $this->createQueryBuilder('a')
+            ->leftJoin('a.category', 'category')
+            ->andWhere('category.slug = :val')
+            ->setParameter('val', $slug)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */

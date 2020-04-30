@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    {% for article in articles %}
+        <div>
+            <h2> {{ article.title }}</h2>
+            <p>{{ article.content |ellipsis(150)|raw  }}</p>
+        <a href="{{ path('article_view', {'slug':article.slug}) }}">read</a>
+        </div>
+    {% endfor %}
+    {#{{ dump() }}#}
+{% endblock %}
+
+
+
