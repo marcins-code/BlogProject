@@ -5,6 +5,8 @@
 @import "components/_import.scss";
 
 
+
+
 .left-sidebar {
   min-width: 250px;
 
@@ -30,14 +32,20 @@
 
     .uk-nav-default > li > a {
       color: $base-body-color;
+      text-shadow: 0 2px 2px $black-30;
 
       &:hover i {
-        color: $complement !important
+        color: lighten($complement, 20%) !important
       }
     }
 
+
+
+
+
+
     .uk-nav-default > li.uk-active > a > i {
-      color: $complement !important;
+      color: lighten($complement,20%) !important;
     }
 
     > * {
@@ -46,7 +54,6 @@
     }
   }
 }
-
 
 .content {
   padding-right: 30px;
@@ -68,8 +75,6 @@
 //.uk-button {
 //
 //}
-
-
 
 
 
@@ -109,9 +114,11 @@ hr {
 }
 
 .uk-button{
-  box-shadow:  0px 0px 3px 4px rgba($black,0.25), 0 0 3px $black-30 inset ;
+  //box-shadow:  0px 0px 3px 4px rgba($black,0.25), 0 0 3px $black-30 inset ;
   //border: solid 1px $black-50;
 }
+
+
 
 /* -----------------------------
 Switch */

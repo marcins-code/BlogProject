@@ -9,6 +9,7 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/uikit.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/tests.min.css') }}">
     {% endblock %}
     {% block javascripts %}
         <script src="{{ asset('js/uikit.min.js') }}"></script>
@@ -32,11 +33,11 @@
                     </div>
                 {% endblock %}
                 {% block sidebar_menu %}
-                    <div class="sidebar-menu uk-card">
-                        <div class="uk-card-header uk-background-info">
+                    <div class="sidebar-menu uk-card uk-shadow-3d-dark-plus">
+                        <div class="uk-card-header uk-background-full-secondary uk-box-shadow-small-b">
                             <h4>Categories</h4>
                         </div>
-                        <div class="uk-card-body uk-background-dark uk-padding-small">
+                        <div class="uk-card-body uk-background-dark-plus uk-padding-small">
                         {{ main_menu }}
                         </div>
                     </div>

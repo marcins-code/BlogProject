@@ -5,3 +5,5 @@
 // TODO Labels
 // TODO forms - View
 //TODO forms - DELETE
+// TODO box-shadow
+// TODO text-shadow

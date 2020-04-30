@@ -96,7 +96,8 @@ $warning:     $yellow !default;
 $danger:      $red !default;
 $success:     $green !default;
 $light:       $gray-200 !default;
-$dark:        $gray-800 !default;
+$dark:        $gray-600 !default;
+$dark-plus:        $gray-800 !default;
 $info:        $cyan !default;
 
 
@@ -112,6 +113,7 @@ $theme-colors: map-merge(
                         "danger": $danger,
                         "light": $light,
                         "dark": $dark,
+                        "dark-plus": $dark-plus,
                         "info":$info
                 ),
                 $theme-colors

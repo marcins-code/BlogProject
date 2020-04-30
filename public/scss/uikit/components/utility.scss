@@ -41,7 +41,7 @@ $box-shadow-duration:                            0.1s !default;
 
 $box-shadow-bottom-height:                       30px !default;
 $box-shadow-bottom-border-radius:                100% !default;
-$box-shadow-bottom-background:                   #444 !default;
+$box-shadow-bottom-background:                   $black-60 !default;
 $box-shadow-bottom-blur:                         20px !default;
 
 $dropcap-margin-right:                           10px !default;
@@ -271,10 +271,22 @@ $dragover-box-shadow:                            0 0 20px rgba(100,100,100,0.3) 
 /* Box-shadow
  ========================================================================== */
 
-.uk-box-shadow-small { box-shadow: $global-small-box-shadow; }
-.uk-box-shadow-medium { box-shadow: $global-medium-box-shadow; }
-.uk-box-shadow-large { box-shadow: $global-large-box-shadow; }
-.uk-box-shadow-xlarge { box-shadow: $global-xlarge-box-shadow; }
+
+
+
+
+@each $color, $value in $theme-colors {
+    .uk-shadow-3d-#{$color} {
+        @include myboxshadow(rgba($value, 0.1), 5,0px,1px);
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .uk-shadow-3d-sm-#{$color} {
+        @include myboxshadow(rgba($value, 0.1), 4,0px,1px);
+    }
+}
+
 
 /*
  * Hover

@@ -1,0 +1,15 @@
+@mixin myboxshadow($color, $depth ,$y, $x) {
+  $all: ();
+  $balg: ();
+  @for $i from 0 through $depth - 1 {
+    $all: append($all, append($i*$y $i*$x 0, darken($color, $i+15%)), comma);
+  }
+ @if $depth>2 {
+   $balg: ($balg, $depth*$y $depth*$x 6px rgba(0, 0, 0, .25));
+   $balg: ($balg, $depth*$y $depth*$x 1px rgba(0, 0, 0, .1));
+   $balg: ($balg, 0 0 6px rgba(0, 0, 0, .6));
+ }
+  box-shadow: join($all, $balg);
+}
+
+

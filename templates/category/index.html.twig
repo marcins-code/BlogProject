@@ -3,8 +3,8 @@
 {% block title %}{{title}}{% endblock %}
 
 {% block content %}
-    <div class="uk-card uk-margin-small-top ">
-        <div class="uk-card-body uk-background-secondary">
+    <div class="uk-card uk-margin-small-top uk-shadow-3d-secondary">
+        <div class="uk-card-body uk-background-secondary ">
             <div data-uk-grid>
                 <div>
                     <h1 class="admin-header"><i class="fas fa-stream"></i> Categories </h1 cl>
@@ -17,7 +17,7 @@
 
             <hr/>
 
-            <div class="count">
+            <div class="count ">
                 {{ pagination.getTotalItemCount }}
             </div>
             <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small uk-table-justify">
@@ -46,11 +46,11 @@
                         <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
                         <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>
                         <td>
-                            <a class="uk-button uk-button-info uk-button-small"
+                            <a class="uk-button uk-button-info uk-button-small uk-button-icon"
                                href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
-                            <a class="uk-button uk-button-success uk-button-small uk-margin-small-left"
+                            <a class="uk-button uk-button-success uk-button-small uk-margin-small-left uk-button-icon"
                                href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>
-                            <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" disabled
+                            <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left uk-button-icon" disabled
                                     href="{{ path('category_edit', {'id': category.id}) }}"><i
                                         class="far fa-trash-alt"></i></button>
 

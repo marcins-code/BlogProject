@@ -22,7 +22,7 @@
 // Variables
 // ========================================================================
 
-$button-line-height:                             $global-control-height !default;
+$button-line-height:                             30px !default;
 $button-small-line-height:                       $global-control-small-height !default;
 $button-large-line-height:                       $global-control-large-height !default;
 
@@ -30,7 +30,7 @@ $button-font-size:                               $global-font-size !default;
 $button-small-font-size:                         $global-small-font-size !default;
 $button-large-font-size:                         $global-medium-font-size !default;
 
-$button-padding-horizontal:                      $global-gutter !default;
+$button-padding-horizontal:                      $global-small-gutter !default;
 $button-small-padding-horizontal:                $global-small-gutter !default;
 $button-large-padding-horizontal:                $global-medium-gutter !default;
 
@@ -122,10 +122,9 @@ $button-link-disabled-color:                     $global-muted-color !default;
     text-align: center;
     /* 10 */
     text-decoration: none;
-    font-size: 1rem;
-    //box-shadow:  0px 0px 2px 5px rgba($gray-700, .3) inset;
+    border-style: solid;
+    border-width: 2px;
 
-    //box-shadow: inset 0 3px 0 rgba(255,255,255,0.12), 0 0 0 4px $white-10;
 }
 
 .uk-button:not(:disabled) { cursor: pointer; }
@@ -305,6 +304,15 @@ $button-link-disabled-color:                     $global-muted-color !default;
     @if(mixin-exists(hook-button-large)) {@include hook-button-large();}
 }
 
+
+.uk-button-icon{
+padding: 0 $global-xsmall-gutter;
+}
+
+.uk-button-rounded{
+    border-radius: 20px;
+    &.uk-button-small {border-radius: 100px}
+}
 
 /* Text modifiers
  ========================================================================== */

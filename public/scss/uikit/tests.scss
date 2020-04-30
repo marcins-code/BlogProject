@@ -1,0 +1,136 @@
+@import "components/colors.scss";
+@import "components/variables.scss";
+@import "components/mixins";
+@import "components/mixin.scss";
+@import "components/base.scss";
+
+
+//@mixin threedshadow($color, $depth ,$y, $x) {
+//  $all: ();
+//  $balg: ();
+//  @for $i from 0 through $depth - 1 {
+//    $all: append($all, append($i*$y $i*$x 0, darken($color, $i+15%)), comma);
+//  }
+//
+//  $balg: ($balg, $depth*$y $depth*$x 4px rgba(0, 0, 0, .18));
+//  $balg: ($balg, $depth*$y $depth*$x 1px rgba(0, 0, 0, .1));
+//  $balg: ($balg, 0 0 6px rgba(0, 0, 0, .2));
+//  box-shadow: join($all, $balg);
+//}
+//
+//@each $color, $value in $theme-colors {
+//  .uk-shadow-3d-#{$color} {
+//    @include threedshadow(rgba($value, 0.1), 7,0px,1px);
+//  }
+//}
+//
+//@each $color, $value in $theme-colors {
+//  .uk-shadow-3d-sm-#{$color} {
+//    @include threedshadow(rgba($value, 0.1), 4,0px,1px);
+//  }
+//}
+//
+//
+//.uk-button-rounded{
+//  border-radius: 20px;
+//  &.uk-button-small {border-radius: 100px}
+//}
+
+//@mixin simple-box-shadow($color, $y, $x, $blur, $spread) {
+//   box-shadow:  $y  $x $blur $spread $color
+//}
+
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+.uk-box-shadow-small {
+  @include box-shadow(0 ,2px, 4px,$black-50);
+}
+.uk-box-shadow-small-b {
+  @include box-shadow(0 ,2px, 2px,$black-30);
+}
+
+
+
+
+.uk-box-shadow-medium {
+  @include box-shadow(0 ,6px, 10px,$black-30);
+}
+
+
+
+
+
+@each $color, $value in $theme-colors {
+  .uk-background-full-#{$color} {
+    @include bg-gradient-3-full-make($value);
+  }
+}
+
+
+
+
+@each $color, $value in $theme-colors {
+  .uk-alert-#{$color}:before {
+    @include bg-gradient-3-full-make($value);
+  }
+}
+
+.uk-alert{
+background: $dark;
+  padding-left: 120px;
+  text-shadow: 2px 2px 2px $black-60;
+}
+[class^="uk-alert-"]:not(.uk-alert-close):before{
+  font-family: "Font Awesome 5 Free"; font-weight: 900;
+  font-size: 2.2rem;
+  padding-left:30px;
+  //line-height: 1rem;
+  color:$white;
+  width: 70px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  vertical-align: text-top;
+  position: absolute;
+  min-height: 50px;
+text-shadow: 2px 2px 2px $black-60;
+  @include bg-gradient-3-full-make ($dark-plus);
+  //padding: -20px;
+
+}
+
+.uk-alert-danger{
+  color:$danger;
+  &:before{
+    content: "\f071";
+    color:$danger !important;
+  }
+}
+//
+//.uk-alert {
+//  //position: relative;
+//  //margin-bottom: $alert-margin-vertical;
+//  //padding: $alert-padding $alert-padding-right $alert-padding $alert-padding;
+//  //background: $alert-background;
+//  //color: $alert-color;
+//  border-radius: 10px;
+//  @include box-shadow(0,5px,5px, $black-40);
+//  @if(mixin-exists(hook-alert)) {@include hook-alert();}
+//  >*
+//}
+
+
+//.uk-box-shadow-small-b {
+//  @include myboxshadow($black-50, 0, 2px 4px)
+//}
+
+//.uk-box-shadow-medium { box-shadow: $global-medium-box-shadow; }
+//.uk-box-shadow-large { box-shadow: $global-large-box-shadow; }
+//.uk-box-shadow-xlarge { box-shadow: $global-xlarge-box-shadow; }

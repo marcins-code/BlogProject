@@ -46,7 +46,7 @@ $global-xxlarge-font-size:                       2.625rem !default; // 42px
 $global-xlarge-font-size:                        2rem !default;     // 32px
 $global-large-font-size:                         1.5rem !default;   // 24px
 $global-medium-font-size:                        1.25rem !default;  // 20px
-$global-small-font-size:                         0.875rem !default; // 14px
+$global-small-font-size:                         0.8rem !default; // 14px
 
 //
 // Colors
@@ -87,10 +87,10 @@ $global-border:                                  #e5e5e5 !default;
 // Box-Shadows
 //
 
-$global-small-box-shadow:                        0 2px 8px rgba(0,0,0,0.08) !default;
-$global-medium-box-shadow:                       0 5px 15px rgba(0,0,0,0.08) !default;
-$global-large-box-shadow:                        0 14px 25px rgba(0,0,0,0.16) !default;
-$global-xlarge-box-shadow:                       0 28px 50px rgba(0,0,0,0.16) !default;
+$global-small-box-shadow:                        0 2px 8px $black-50 !default;
+$global-medium-box-shadow:                       0 5px 15px $black-40 !default;
+$global-large-box-shadow:                        0 14px 25px $black-30 !default;
+$global-xlarge-box-shadow:                       0 28px 50px $black-30!default;
 
 //
 // Spacings
@@ -106,6 +106,7 @@ $global-xlarge-margin:                           140px !default;
 // Used in grid, column, container, align, card, padding
 $global-gutter:                                  30px !default;
 $global-small-gutter:                            15px !default;
+$global-xsmall-gutter:                           10px !default;
 $global-medium-gutter:                           40px !default;
 $global-large-gutter:                            70px !default;
 
@@ -113,8 +114,8 @@ $global-large-gutter:                            70px !default;
 // Controls
 //
 
-$global-control-height:                          40px !default;
-$global-control-small-height:                    30px !default;
+$global-control-height:                          30px !default;
+$global-control-small-height:                    20px !default;
 $global-control-large-height:                    55px !default;
 
 //

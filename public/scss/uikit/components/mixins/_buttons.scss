@@ -13,13 +13,14 @@
   color: $color;
   text-shadow: rgba(0,0,0,.5) 1px 1px;
   @include bg-gradient-make($background);
-  border-color: $border;
+  border-color: darken($border,5%);
+  @include myboxshadow($background,5,0px, 1px);
 
 
   // Disabled comes first so active can properly restyle
-  &.disabled,
-  &:disabled {
-    color: darken($color, 10%);
+  &.disabled, &.disabled > i,
+  &:disabled, &:disabled>i{
+    color: darken($background, 40%) !important;
     background: fade_out($background, 0.3) !important;
     border-color: $border;
     cursor: not-allowed;
