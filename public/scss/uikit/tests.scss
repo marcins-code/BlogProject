@@ -2,7 +2,7 @@
 @import "components/variables.scss";
 @import "components/mixins";
 @import "components/mixin.scss";
-@import "components/base.scss";
+//@import "components/base.scss";
 
 
 //@mixin threedshadow($color, $depth ,$y, $x) {
@@ -76,43 +76,7 @@
 
 
 
-@each $color, $value in $theme-colors {
-  .uk-alert-#{$color}:before {
-    @include bg-gradient-3-full-make($value);
-  }
-}
 
-.uk-alert{
-background: $dark;
-  padding-left: 120px;
-  text-shadow: 2px 2px 2px $black-60;
-}
-[class^="uk-alert-"]:not(.uk-alert-close):before{
-  font-family: "Font Awesome 5 Free"; font-weight: 900;
-  font-size: 2.2rem;
-  padding-left:30px;
-  //line-height: 1rem;
-  color:$white;
-  width: 70px;
-  height: 100%;
-  top: 0;
-  left: 0;
-  vertical-align: text-top;
-  position: absolute;
-  min-height: 50px;
-text-shadow: 2px 2px 2px $black-60;
-  @include bg-gradient-3-full-make ($dark-plus);
-  //padding: -20px;
-
-}
-
-.uk-alert-danger{
-  color:$danger;
-  &:before{
-    content: "\f071";
-    color:$danger !important;
-  }
-}
 
 
 .my-logo {
@@ -170,3 +134,157 @@ text-shadow: 2px 2px 2px $black-60;
 
 
 
+@each $color, $value in $theme-colors {
+  .uk-divider-#{$color} {
+    border-color:  $value !important;
+  }
+}
+
+
+[class^="uk-divider-"]
+{
+  border-style: solid;
+  border-width: 1px;
+  //@include box-shadow(0 ,2px, 4px,$black-50, true);
+
+}
+
+
+
+@each $color, $value in $theme-colors {
+  .uk-alert-#{$color}:before, .uk-notification-message-#{$color}:before {
+    color:$value !important;
+  }
+}
+
+//.uk-alert{
+//  //background: $dark;
+//  padding-left: 120px;
+//  text-shadow: 2px 2px 2px $black-60;
+//}
+
+
+//[class^="uk-alert-"]:not(.uk-alert-close):before,[class^="uk-notification-message-"]:before{
+//  font-family: "Font Awesome 5 Free";
+//  font-weight: 900;
+//  font-size: 2.2rem;
+//  color:$white;
+//  width: 70px;
+//  //background:$dark-plus;
+//
+//  @include bg-gradient-3-full-make($dark-plus);
+//  top: 0;
+//  left: 0;
+//  text-align: center;
+//  position: absolute;
+//  min-height: 50px;
+//  text-shadow: 2px 2px 2px $black-60;
+//
+//
+//
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//  height: 100%;
+//}
+
+
+.uk-alert:before,.uk-notification-message:before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 2.2rem;
+  color:$white;
+  width: 70px;
+  @include bg-gradient-3-full-make($dark-plus);
+  top: 0;
+  left: 0;
+  text-align: center;
+  position: absolute;
+  min-height: 50px;
+  text-shadow: 2px 2px 2px $black-60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  @include box-shadow(2px , 0 ,2px, $black-50);
+  border-right-style: inset;
+  border-right-width: 2px;
+}
+
+
+
+.uk-alert, .uk-notification-message{
+  background: $light;
+  padding-left: 90px;
+  text-shadow: 0px 1px px $black-60;
+  @include box-shadow(0,4px, 4px, $black-60);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+.uk-alert-danger, .uk-notification-message-danger{
+  color:$danger;
+  &:before{
+    content: "\f071";
+    border-right-color: $danger;
+  }
+}
+
+
+
+
+.uk-alert-success, .uk-notification-message-success{
+  color:$success;
+  &:before{
+    content: "\f058";
+    border-right-color: $success;
+  }
+}
+
+.uk-alert-warning, .uk-notification-message-warning{
+  color:$warning;
+  &:before{
+    content: "\f12a";
+    border-right-color: $warning;
+  }
+}
+
+.uk-alert-primary, .uk-notification-message-primary{
+  color:$primary;
+  &:before{
+    content: "\f05a";
+    border-right-color: $primary;
+  }
+}
+
+.uk-alert-info, .uk-notification-message-info{
+  color:$info;
+  &:before{
+    content: "\f05a";
+    border-right-color: $info;
+  }
+}
+
+
+@each $color, $value in $theme-colors {
+  .uk-label-#{$color} {
+    @include bg-gradient-make($value);
+  }
+}
+
+.uk-label{
+  color:$gray-100 !important;
+  border-radius: 5px;
+  @include box-shadow(0,3px, 2px, $black-50)
+}
+
+
+
+.uk-table-center{
+  tr {
+    th,td {
+      text-align: center;
+    }
+  }
+}

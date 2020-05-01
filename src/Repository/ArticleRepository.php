@@ -25,6 +25,8 @@ class ArticleRepository extends ServiceEntityRepository
             ->leftJoin('a.category', 'category')
             ->andWhere('category.slug = :val')
             ->setParameter('val', $slug)
+            ->andWhere('a.isPublished = true')
+            ->orderBy('a.id', 'ASC')
             ->getQuery()
             ->getResult();
     }

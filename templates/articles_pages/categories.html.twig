@@ -6,10 +6,10 @@
         <div>
             <h2 class="uk-text-secondary uk-margin-small-bottom"> {{ article.title }}</h2>
             <div class="uk-margin-remove">{{ article.content |ellipsis(500)|raw }}</div>
-            <a class="uk-button  uk-button-info uk-button-rounded"
+            <a class="uk-button  uk-button-info uk-button-rounded uk-margin-small-top"
                href="{{ path('article_view', {'slug':article.slug}) }}"><i class="far fa-bookmark"></i> Read more</a>
         </div>
-        <hr class="uk-divider-icon"/>
+        <hr class="uk-divider-dark"/>
     {% endfor %}
     {#{{ dump() }}#}
 {% endblock %}

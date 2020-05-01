@@ -21,7 +21,7 @@ class ArticleController extends AbstractController
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articleRepository->findBy([], ['id'=>'ASC']),
         ]);
     }
 
@@ -39,7 +39,20 @@ class ArticleController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute('article_index');
+            if ($form->get('save')->isClicked()) {
+                return $this->redirectToRoute('article_edit', ['id' => $entityManager->getId()]);
+            }
+
+
+            if ($form->get('save_exit')->isClicked()) {
+
+                return $this->redirectToRoute('article_index');
+            }
+
+            if ($form->get('save_new')->isClicked()) {
+
+                return $this->redirectToRoute('article_new');
+            }
         }
 
         return $this->render('article/new.html.twig', [
