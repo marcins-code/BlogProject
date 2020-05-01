@@ -5,12 +5,10 @@
     {% for article in articles %}
         <div>
             <h2> {{ article.title }}</h2>
-            <p>{{ article.content |ellipsis(150)|raw  }}</p>
-        <a href="{{ path('article_view', {'slug':article.slug}) }}">read</a>
+            <p>{{ article.content |ellipsis(500)|raw  }}</p>
+        <a class="uk-button  uk-button-info uk-button-rounded" href="{{ path('article_view', {'slug':article.slug}) }}"><i class="far fa-bookmark"></i> Read more</a>
         </div>
+        <hr class="uk-divider-icon"/>
     {% endfor %}
     {#{{ dump() }}#}
 {% endblock %}
-
-
-

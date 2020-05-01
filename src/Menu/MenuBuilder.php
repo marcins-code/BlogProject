@@ -72,6 +72,11 @@ class MenuBuilder implements ContainerAwareInterface
             'extras'=>['icon_before'=>'fas fa-stream']
             ]);
 
+        $menu->addChild('Home', [
+            'route' => 'homepage',
+            'extras'=>['icon_before'=>'fas fa-house-damage']
+        ]);
+
 
         return $menu;
     }

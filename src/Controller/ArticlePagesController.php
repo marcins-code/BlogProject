@@ -36,6 +36,6 @@ class ArticlePagesController extends AbstractController
     public  function articleView(string $slug, ArticleRepository $articleRepository)
     {
         $article = $articleRepository->findOneBy(['slug'=>$slug]);
-//        dd($article);
+        dd($article);
     }
 }
