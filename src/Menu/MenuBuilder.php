@@ -114,6 +114,7 @@ class MenuBuilder implements ContainerAwareInterface
                         ->addChild($page->getCategory(),
                             [   'route' => 'article_categories',
                                 'routeParameters' => ['slug'=>$page->getSlug()],
+                                'extras' => ['icon_before' => $page->getIcon()],
 
                             ])->setLinkAttributes(['class' => count($page->getChildren()),]);
 

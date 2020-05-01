@@ -57,7 +57,7 @@ class CategoryController extends AbstractController
             }
 
 
-            if ($form->get('save_close')->isClicked()) {
+            if ($form->get('save_exit')->isClicked()) {
 
                 return $this->redirectToRoute('category_index');
             }

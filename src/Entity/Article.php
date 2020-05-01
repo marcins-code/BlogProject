@@ -66,6 +66,8 @@ class Article
      */
     private $isPublished = true;
 
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -166,4 +168,7 @@ class Article
 
         return $this;
     }
+
+
+
 }

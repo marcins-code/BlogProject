@@ -10,9 +10,17 @@
         <link rel="stylesheet" href="{{ asset('css/uikit.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/tests.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('highlight/styles/darcula.css') }}">
     {% endblock %}
     {% block javascripts %}
         <script src="{{ asset('js/uikit.min.js') }}"></script>
+        <script src="{{ asset('highlight/highlight.pack.js') }}"></script>
+        <script src="{{ asset('highlight/highlightjs-line-numbers.js') }}"></script>
+        <script src="{{ asset('js/learning.js') }}"></script>
+        <script>
+            hljs.initHighlightingOnLoad();
+            hljs.initLineNumbersOnLoad();
+        </script>
     {% endblock %}
 </head>
 <body>

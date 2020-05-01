@@ -8,6 +8,7 @@ use App\Form\Type\SwitcherType;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -44,6 +45,16 @@ class ArticleType extends AbstractType
             ->add('isPublished', SwitcherType::class, [
                 'required'=>false
             ])
+
+//            ->add('type', ChoiceType::class, [
+//                'choices'  => [
+//                    'article' => 'article',
+//                    'lesson' => 'lesson',
+//
+//                ],
+//            ])
+//
+//            ->add('movies')
             ->add('save', SubmitType::class, [
                 'label' => 'Save',
                 'icon_before' => 'far fa-save',
