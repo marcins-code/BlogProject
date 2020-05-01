@@ -116,7 +116,7 @@ text-shadow: 2px 2px 2px $black-60;
 
 
 .my-logo {
-  background-image: url("/images/logo/logo.png");
+  //background-image: url("/images/logo/logo.png");
   background-size: 220px;
   background-repeat: no-repeat;
   background-position: center;
@@ -160,3 +160,13 @@ text-shadow: 2px 2px 2px $black-60;
 //.uk-box-shadow-medium { box-shadow: $global-medium-box-shadow; }
 //.uk-box-shadow-large { box-shadow: $global-large-box-shadow; }
 //.uk-box-shadow-xlarge { box-shadow: $global-xlarge-box-shadow; }
+
+
+@each $color, $value in $theme-colors {
+  .uk-text-#{$color} {
+    color: $value !important;
+  }
+}
+
+
+
