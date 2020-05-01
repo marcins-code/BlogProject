@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticlePagesController extends AbstractController
 {
     /**
-     * @Route("/", name="articles_pages")
+     * @Route("/", name="homepage")
      */
     public function index()
     {
@@ -36,6 +36,6 @@ class ArticlePagesController extends AbstractController
     public  function articleView(string $slug, ArticleRepository $articleRepository)
     {
         $article = $articleRepository->findOneBy(['slug'=>$slug]);
-        dd($article);
+//        dd($article);
     }
 }

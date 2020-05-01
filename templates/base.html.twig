@@ -18,20 +18,19 @@
 <body>
 {% block body %}
     <div class="uk-container-expand uk-flex" data-uk-grid>
+
         {% block left_sidebar %}
             <div class="left-sidebar uk-width-1-6@s uk-visible@s ">
-                {% block  sidebar_logo %}
-                    <div class="sidebar-logo">
-                        <a href="{{ path('articles_pages') }}"><h5>marcins-blog</h5></a>
-                    </div>
-                {% endblock %}
-                {% block  sidebar_user %}
-                    <div class="sidebar-user ">
-                        <h2 class="uk-margin-remove-bottom">
-                        {{ app.user }}
-                        </h2>
-                    </div>
-                {% endblock %}
+{#                {% block  sidebar_logo %}#}
+{#                    <div class="sidebar-logo">#}
+{#                        <a class="my-logo" href="{{ path('homepage') }}">wweg</a>#}
+{#                    </div>#}
+{#                {% endblock %}#}
+                <div class="uk-navbar-right"
+                <h3 class="uk-margin-remove-bottom ">
+                    {{ app.user }}
+                </h3>
+            </div>
                 {% block sidebar_menu %}
                     <div class="sidebar-menu uk-card uk-shadow-3d-dark-plus">
                         <div class="uk-card-header uk-background-full-secondary uk-box-shadow-small-b">
