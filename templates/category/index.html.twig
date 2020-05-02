@@ -10,12 +10,11 @@
                     <h1 class="admin-header"><i class="fas fa-stream"></i> Categories </h1 cl>
                 </div>
                 <div class="uk-width-expand">
-                    <a class="uk-button uk-button-success uk-float-right" href="{{ path('category_new') }}">New
-                        category</a>
+                    <a class="uk-button uk-button-success uk-float-right" href="{{ path('category_new') }}"><i class="far fa-plus-square"></i> New category</a>
                 </div>
             </div>
 
-            <hr/>
+            <hr class="uk-divider-secondary"/>
 
             <div class="count ">
                 {{ pagination.getTotalItemCount }}

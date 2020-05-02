@@ -75,7 +75,12 @@
 
 
 
-
+.uk-text-white{
+  color:$gray-100 !important;
+   input, select {
+    color: $gray-100 !important;
+  }
+}
 
 
 

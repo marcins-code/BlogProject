@@ -9,7 +9,6 @@
   }
 }
 
-
 @mixin bg-gradient-3-full-make ($color){
   background:  linear-gradient(to bottom, $color 0%,lighten($color,10%) 50%, $color 100%);
   * {

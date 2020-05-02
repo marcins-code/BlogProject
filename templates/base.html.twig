@@ -25,7 +25,7 @@
 </head>
 <body>
 {% block body %}
-    <div class="uk-container-expand uk-flex" data-uk-grid>
+<div class="uk-container-expand uk-flex" data-uk-grid>
 
     {% block left_sidebar %}
         <div class="left-sidebar uk-width-1-6@s uk-visible@s ">
@@ -34,33 +34,34 @@
             {#                        <a class="my-logo" href="{{ path('homepage') }}">wweg</a>#}
             {#                    </div>#}
             {#                {% endblock %}#}
-            <div class="uk-navbar-right"
-            <h3 class="uk-margin-remove-bottom ">
+            <div class="uk-navbar-right">
+                <h3 class="uk-margin-remove-bottom ">
 
-            </h3>
-        </div>
-        {% block sidebar_menu %}
-            <div class="sidebar-menu uk-card uk-shadow-3d-dark-plus">
-                <div class="uk-card-header uk-background-full-secondary uk-box-shadow-small-b">
-                    <h4>Categories</h4>
-                </div>
-                <div class="uk-card-body uk-background-dark-plus uk-padding-small">
-                    {{ main_menu }}
-                </div>
+                </h3>
             </div>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% block sidebar_menu %}
                 <div class="sidebar-menu uk-card uk-shadow-3d-dark-plus">
-                    <div class="uk-card-body uk-background-dark uk-padding-small">
-                        <h3 class="uk-margin-remove">{{ app.user }}</h3>
-                        <hr class="uk-margin-remove"/>
-                        <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
-                            <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i> Admin</a>
-                            </li>
-                        </ul>
+                    <div class="uk-card-header uk-background-full-secondary uk-box-shadow-small-b">
+                        <h4>Categories</h4>
+                    </div>
+                    <div class="uk-card-body uk-background-dark-plus uk-padding-small">
+                        {{ main_menu }}
                     </div>
                 </div>
-            {% endif %}
-        {% endblock %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="sidebar-menu uk-card uk-shadow-3d-dark-plus">
+                        <div class="uk-card-body uk-background-dark uk-padding-small">
+                            <h3 class="uk-margin-remove">{{ app.user }}</h3>
+                            <hr class="uk-margin-remove"/>
+                            <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
+                                <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i>
+                                        Admin</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock %}
         </div>
     {% endblock %}
     <div class="content uk-width-expand@s">
@@ -68,9 +69,10 @@
 
         {% endblock %}
     </div>
-    <div class="left-sidebar uk-width-1-6@s uk-visible@m">
-    </div>
-    </div>
-{% endblock %}
+    {% block right_sidebar %}
+        <div class="left-sidebar uk-width-1-6@s uk-visible@m">
+        </div>
+    {% endblock %}
+    {% endblock %}
 </body>
 </html>

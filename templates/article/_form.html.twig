@@ -1,10 +1,11 @@
 {% extends 'form_base.html.twig' %}
     {% block content %}
+        <h1 class="uk-text-primary uk-text-bold">{{ title }}</h1>
         {{ form_start(form) }}
-        <div data-uk-grid class="uk-padding-small">
-            <div class="uk-width-1-6@m uk-form-buttons">
-                <div class="uk-card">
-                    <div class="uk-card-body uk-background-dark">
+        <div class="uk-flex uk-margin-large-bottom uk-padding-small" data-uk-grid>
+            <div class="uk-width-1-6@l uk-flex-first uk-form-buttons ">
+                <div class="uk-card  uk-shadow-3d-dark-plus uk-margin-medium-top" data-uk-sticky>
+                    <div class="uk-card-body">
                         {{ form_row(form.save) }}
                         {{ form_row(form.save_exit) }}
                         {{ form_row(form.save_new) }}
@@ -14,7 +15,9 @@
                 </div>
             </div>
             <div class="uk-width-expand@m">
+
                 <div data-uk-grid>
+
                     <div class="uk-width-expand">
                         {{ form_row(form.title) }}
                     </div>
@@ -25,7 +28,6 @@
                         {{ form_row(form.isPublished) }}
                     </div>
                 </div>
-
                 <div data-uk-grid>
                     <div class="uk-width-expand">
                         {{ form_row(form.content) }}
@@ -34,5 +36,8 @@
             </div>
         </div>
 
+
         {{ form_end(form) }}
     {% endblock %}
+  {% block right_sidebar %}
+  {% endblock %}
