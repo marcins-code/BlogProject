@@ -40,7 +40,7 @@ class ArticleController extends AbstractController
             $entityManager->flush();
 
             if ($form->get('save')->isClicked()) {
-                return $this->redirectToRoute('article_edit', ['id' => $entityManager->getId()]);
+                return $this->redirectToRoute('article_edit', ['id' => $article->getId()]);
             }
 
 
@@ -75,13 +75,16 @@ class ArticleController extends AbstractController
     /**
      * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Article $article): Response
+    public function edit(Request $request, Article $article, string  $id): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
+        $repo = $this->getDoctrine()->getRepository(Article::class)->findOneBy(['id'=>$id]);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
 
             if ($form->get('save_exit')->isClicked()) {
 
@@ -97,7 +100,8 @@ class ArticleController extends AbstractController
         return $this->render('article/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
-            'title'=>'Edit article'
+            'title'=>'Edit article',
+            'repo'=>$repo
         ]);
     }
 

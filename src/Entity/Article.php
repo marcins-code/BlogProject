@@ -66,6 +66,20 @@ class Article
      */
     private $isPublished = true;
 
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $movies = [];
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $moviePath;
 
 
     public function getId(): ?int
@@ -169,6 +183,41 @@ class Article
         return $this;
     }
 
+    public function getMovies(): ?array
+    {
+        return $this->movies;
+    }
+
+    public function setMovies(?array $movies): self
+    {
+        $this->movies = $movies;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getMoviePath(): ?string
+    {
+        return $this->moviePath;
+    }
+
+    public function setMoviePath(?string $moviePath): self
+    {
+        $this->moviePath = $moviePath;
+
+        return $this;
+    }
 
 
 }

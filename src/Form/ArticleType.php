@@ -8,6 +8,7 @@ use App\Form\Type\SwitcherType;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -46,15 +47,20 @@ class ArticleType extends AbstractType
                 'required'=>false
             ])
 
-//            ->add('type', ChoiceType::class, [
-//                'choices'  => [
-//                    'article' => 'article',
-//                    'lesson' => 'lesson',
-//
-//                ],
-//            ])
-//
-//            ->add('movies')
+            ->add('type', ChoiceType::class, [
+                'choices'  => [
+                    'article' => 'article',
+                    'lesson' => 'lesson',
+                ],
+            ])
+
+            ->add('moviePath', null,[
+                'required'=>false
+            ])
+
+            ->add('movies', TextType::class, [
+                'required'=>false,
+            ])
             ->add('save', SubmitType::class, [
                 'label' => 'Save',
                 'icon_before' => 'far fa-save',
@@ -70,7 +76,20 @@ class ArticleType extends AbstractType
                 'icon_before' => 'far fa-plus-square',
                 'attr' => ['class' => 'uk-button-info']
             ]);
+
+        $builder->get('movies')
+            ->addModelTransformer(new CallbackTransformer(
+                function ($tagsAsArray) {
+                    // transform the array to a string
+                    return implode(', ', $tagsAsArray);
+                },
+                function ($tagsAsString) {
+                    // transform the string back to an array
+                    return explode(', ', $tagsAsString);
+                }
+            ))
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
