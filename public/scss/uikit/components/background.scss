@@ -34,6 +34,18 @@ $background-secondary-background:                $global-secondary-background !d
     }
 }
 
+@each $color, $value in $theme-colors {
+    .uk-background-#{$color}-full {
+        @include bg-gradient-3-full-make($value);
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .uk-background-#{$color}-gd {
+        @include bg-gradient-make($value);
+    }
+}
+
 /* Size
  ========================================================================== */
 

@@ -89,34 +89,40 @@ $colors: map-merge(
 
 
 //Theme colors
-$primary:     #0081cf !default;
-$complement:  complement($primary) !default;
-$secondary:   #5f3d37 !default;
-$warning:     $yellow !default;
-$danger:      $red !default;
-$success:     $green !default;
-$light:       $gray-200 !default;
-$dark:        $gray-600 !default;
-$dark-plus:        $gray-800 !default;
-$info:        $cyan !default;
+$primary: #5f3d37 !default;
+$secondary: #516D99 !default;
+$tertiary: #3E492F !default;
+
+$warning: $yellow !default;
+$danger: $red !default;
+$success: $green !default;
+$light: $gray-200 !default;
+$dark: $gray-600 !default;
+$dark-plus: $gray-800 !default;
+$info: $cyan !default;
+
+$templates-colors: (
+        "primary": $primary,
+        "tertiary": $tertiary,
+        "secondary": $secondary,
+        "light": $light,
+        "dark": $dark,
+        "darker": $dark-plus
+) !default;
+
+$notification-colors: (
+        "success": $success,
+        "warning": $warning,
+        "danger": $danger,
+        "info":$info
+) !default;
+
 
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
-                (
-                        "primary": $primary,
-                        "complement": $complement,
-                        "secondary": $secondary,
-                        "success": $success,
-                        "warning": $warning,
-                        "danger": $danger,
-                        "light": $light,
-                        "dark": $dark,
-                        "dark-plus": $dark-plus,
-                        "info":$info
-                ),
-                $theme-colors
+                $templates-colors,  $notification-colors
 );
 
 

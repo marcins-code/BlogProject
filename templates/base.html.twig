@@ -40,19 +40,22 @@
                 </h3>
             </div>
             {% block sidebar_menu %}
-                <div class="sidebar-menu uk-card uk-shadow-3d-dark-plus">
-                    <div class="uk-card-header uk-background-full-secondary uk-box-shadow-small-b">
+                <div class="sidebar-menu uk-card uk-shadow-3d-dark">
+                    <div class="uk-card-header uk-background-primary-gd uk-box-shadow-small-b">
                         <h4>Categories</h4>
                     </div>
-                    <div class="uk-card-body uk-background-dark-plus uk-padding-small">
+                    <div class="uk-card-body uk-background-darker uk-padding-small">
                         {{ main_menu }}
                     </div>
                 </div>
+                <br/>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <div class="sidebar-menu uk-card uk-shadow-3d-dark-plus">
-                        <div class="uk-card-body uk-background-dark uk-padding-small">
-                            <h3 class="uk-margin-remove">{{ app.user }}</h3>
-                            <hr class="uk-margin-remove"/>
+                    <div class="sidebar-menu uk-card uk-shadow-3d-tertiary uk-background-tertiary ">
+                        <div class="uk-card-header uk-background-danger-gd uk-box-shadow-small-b"">
+                            <h4 class="uk-margin-remove">{{ app.user }}</h4>
+                        </div>
+                        <div class="uk-card-body uk-padding-small ">
+
                             <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
                                 <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i>
                                         Admin</a>

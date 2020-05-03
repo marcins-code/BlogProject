@@ -59,6 +59,11 @@
 
 
 
+
+
+
+
+
 .uk-box-shadow-medium {
   @include box-shadow(0 ,6px, 10px,$black-30);
 }
@@ -67,11 +72,7 @@
 
 
 
-@each $color, $value in $theme-colors {
-  .uk-background-full-#{$color} {
-    @include bg-gradient-3-full-make($value);
-  }
-}
+
 
 
 
