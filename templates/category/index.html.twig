@@ -1,90 +1,68 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}{{title}}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <div class="uk-card uk-margin-small-top uk-shadow-3d-secondary">
-        <div class="uk-card-body uk-background-secondary ">
-            <div data-uk-grid>
-                <div>
-                    <h1 class="admin-header"><i class="fas fa-stream"></i> Categories </h1 cl>
-                </div>
-                <div class="uk-width-expand">
-                    <a class="uk-button uk-button-success uk-float-right" href="{{ path('category_new') }}"><i class="far fa-plus-square"></i> New category</a>
-                </div>
-            </div>
 
-            <hr class="uk-divider-secondary"/>
 
-            <div class="count ">
-                {{ pagination.getTotalItemCount }}
-            </div>
-            <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small uk-table-justify uk-table-middle uk-table-center">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Category</th>
-                    <th>Parent</th>
-                    <th>Icon</th>
-                    <th>Created By</th>
-                    <th>Created</th>
-                    <th>Modified</th>
-                    <th>IsEnabled</th>
-                    <th>actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for category in pagination %}
-                    <tr>
-                        <td>{{ category.id }}</td>
-                        <td>{{ category.category }}</td>
-                        <td>{{ category.parent }}</td>
-                        <td><i class="{{ category.icon }}"></i></td>
-                        <td>{{ category.createdBy }}</td>
-                        <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>
-                        <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
-                        <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>
-                        <td>
-                            <a class="uk-button uk-button-info uk-button-small uk-button-icon"
-                               href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
-                            <a class="uk-button uk-button-success uk-button-small uk-margin-small-left uk-button-icon"
-                               href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>
-                            <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left uk-button-icon" disabled
-                                    href="{{ path('category_edit', {'id': category.id}) }}"><i
-                                        class="far fa-trash-alt"></i></button>
 
-                        </td>
+    <h1 class="admin-header"><i class="fas fa-stream"></i> Categories </h1 cl>
 
-                    </tr>
-                {% endfor %}
-                {#        {% for category in categories %}#}
-                {#            <tr>#}
-                {#                <td>{{ category.id }}</td>#}
-                {#                <td>{{ category.category }}</td>#}
-                {#                <td>{{ category.parent }}</td>#}
-                {#                <td><i class="{{ category.icon }}"></i></td>#}
-                {#                <td>{{ category.createdBy }}</td>#}
-                {#                <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>#}
-                {#                <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>#}
-                {#                <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>#}
-                {#                <td>#}
-                {#                    <a class="uk-button uk-button-info uk-button-small" href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>#}
-                {#                    <a class="uk-button uk-button-success uk-button-small uk-margin-small-left"  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>#}
-                {#                    <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" disabled  href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-trash-alt"></i></button>#}
+    <div class="uk-width-expand">
+        <a class="uk-button uk-button-success uk-float-right" href="{{ path('category_new') }}"><i
+                    class="far fa-plus-square"></i> New category</a>
+    </div>
 
-                {#                </td>#}
-                {#            </tr>#}
-                {#        {% else %}#}
-                {#            <tr>#}
-                {#                <td colspan="8">no records found</td>#}
-                {#            </tr>#}
-                {#        {% endfor %}#}
-                </tbody>
-            </table>
-            {# display navigation #}
-            <div class="navigation">
-                {{ knp_pagination_render(pagination) }}
-            </div>
-        </div>
+
+
+
+    <table class="uk-table uk-table-divider uk-table-hover uk-table-striped uk-table-small uk-table-justify uk-table-middle uk-table-center">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Parent</th>
+            <th>Icon</th>
+            <th>Created By</th>
+            <th>Created</th>
+            <th>Modified</th>
+            <th>IsEnabled</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in pagination %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.category }}</td>
+                <td>{{ category.parent }}</td>
+                <td><i class="{{ category.icon }}"></i></td>
+                <td>{{ category.createdBy }}</td>
+                <td>{{ category.createdAt ? category.createdAt|date('d-m-Y') : '' }}</td>
+                <td>{{ category.modifiedAt ? category.modifiedAt|date('d-m-Y') : '' }}</td>
+                <td>{{ category.isEnabled ? '<span class="uk-label uk-label-success">Yes</span>' : '<span class="uk-label uk-label-danger">No</span>' }}</td>
+                <td>
+                    <a class="uk-button uk-button-info uk-button-small uk-button-icon"
+                       href="{{ path('category_show', {'id': category.id}) }}"><i class="far fa-eye"></i></a>
+                    <a class="uk-button uk-button-success uk-button-small uk-margin-small-left uk-button-icon"
+                       href="{{ path('category_edit', {'id': category.id}) }}"><i class="far fa-edit"></i></a>
+                    <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left uk-button-icon"
+                            disabled
+                            href="{{ path('category_edit', {'id': category.id}) }}"><i
+                                class="far fa-trash-alt"></i></button>
+
+                </td>
+
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    <div class="count ">
+        {{ pagination.getTotalItemCount }}
     </div>
 {% endblock %}

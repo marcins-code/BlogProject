@@ -1,66 +1,48 @@
+{% block body %}
+<div class="uk-container-expand uk-flex" data-uk-grid>
 
-<div>
-    <div class="uk-card uk-background-primary-gd uk-card-body">
-        <h3 class="uk-card-title">Primary</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
-</div>
-<div>
-    <div class="uk-card uk-background-secondary-gd uk-card-body">
-        <h3 class="uk-card-title">Secondary</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
-</div>
-<div>
-    <div class="uk-card uk-background-tertiary-gd uk-card-body">
-        <h3 class="uk-card-title">tertiary</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
-</div>
+    {% block left_sidebar %}
+    <div class="left-sidebar uk-width-1-6@s uk-visible@s">
+        <div class="uk-navbar-right">
+            <h3 class="uk-margin-remove-bottom ">
 
-<div>
-    <div class="uk-card uk-background-success-gd uk-card-body">
-        <h3 class="uk-card-title">success</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </h3>
+        </div>
+        {% block sidebar_menu %}
+        <div class="sidebar-menu uk-card uk-shadow-3d-dark">
+            <div class="uk-card-header uk-background-primary-gd uk-box-shadow-small-b">
+                <h4>Categories</h4>
+            </div>
+            <div class="uk-card-body uk-background-darker uk-padding-small uk-text-light">
+                {{ main_menu }}
+            </div>
+        </div>
+        <br/>
+        {% if is_granted('ROLE_ADMIN') %}
+        <div class="sidebar-menu uk-card uk-shadow-3d-tertiary uk-background-tertiary ">
+            <div class="uk-card-header uk-background-danger-gd uk-box-shadow-small-b">
+                <h4 class="uk-margin-remove">{{ app.user }}</h4>
+            </div>
+            <div class="uk-card-body uk-padding-small ">
+                <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
+                    <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i>
+                        Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+    {% endif %}
+    {% endblock %}
 </div>
-<div>
-    <div class="uk-card uk-background-warning-gd uk-card-body">
-        <h3 class="uk-card-title">warning</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
-</div>
-<div>
-    <div class="uk-card uk-background-danger-gd uk-card-body">
-        <h3 class="uk-card-title">danger</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
-</div>
-<div>
-    <div class="uk-card uk-background-info-gd uk-card-body">
-        <h3 class="uk-card-title">info</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
-</div>
+{% endblock %}
+<div class="content uk-width-2-3">
+    {% block content %}
 
-
-<div>
-    <div class="uk-card uk-background-light-gd uk-card-body">
-        <h3 class="uk-card-title">light</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+    {% endblock %}
 </div>
-
-<div>
-    <div class="uk-card uk-background-dark-gd uk-card-body">
-        <h3 class="uk-card-title">dark</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+{% block right_sidebar %}
+<div class="left-sidebar uk-width-1-4@m uk-visible@xl uk-flex-last">
 </div>
-
-<div>
-    <div class="uk-card uk-background-darker-gd uk-card-body">
-        <h3 class="uk-card-title">dark</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
-</div>
+{% endblock %}
+{% endblock %}

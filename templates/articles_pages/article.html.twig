@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-<h1 class="uk-margin-remove-bottom uk-text-secondary">{{ article.title }}</h1>
+<article class="uk-article">
+<h1 class="uk-margin-remove-bottom uk-text-secondary uk-text-bold">{{ article.title  }}</h1>
     <hr/>
 <div class="uk-margin-remove">
     {{ article.content|raw }}
 </div>
+</article>
 {% endblock %}
 
 

@@ -7,10 +7,12 @@
     <meta charset="UTF-8">
     <title>{% block title %}{{ title }}{% endblock %}</title>
     {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&family=Roboto:wght@400;700&display=swap"
+              rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/uikit.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/tests.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('highlight/styles/darcula.css') }}">
+        <link rel="stylesheet" href="{{ asset('highlight/styles/github-gist.css') }}">
     {% endblock %}
     {% block javascripts %}
         <script src="{{ asset('js/uikit.min.js') }}"></script>
@@ -25,57 +27,51 @@
 </head>
 <body>
 {% block body %}
-<div class="uk-container-expand uk-flex" data-uk-grid>
+    <div class="uk-container-expand uk-flex" data-uk-grid>
 
-    {% block left_sidebar %}
-        <div class="left-sidebar uk-width-1-6@s uk-visible@s ">
-            {#                {% block  sidebar_logo %}#}
-            {#                    <div class="sidebar-logo">#}
-            {#                        <a class="my-logo" href="{{ path('homepage') }}">wweg</a>#}
-            {#                    </div>#}
-            {#                {% endblock %}#}
-            <div class="uk-navbar-right">
-                <h3 class="uk-margin-remove-bottom ">
 
-                </h3>
+        {% block left_sidebar %}
+            <div class="left-sidebar uk-width-1-6@s uk-visible@s">
+                {% block sidebar_menu %}
+                    <div class="sidebar-menu uk-card uk-shadow-3d-dark">
+                        <div class="uk-card-header uk-background-primary-gd uk-box-shadow-small-b">
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="uk-card-body uk-background-darker uk-padding-small uk-text-light">
+                            {{ main_menu }}
+                        </div>
+                    </div>
+                    <br/>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="sidebar-menu uk-card uk-shadow-3d-tertiary uk-background-tertiary ">
+                            <div class="uk-card-header uk-background-danger-gd uk-box-shadow-small-b">
+                                <h4 class="uk-margin-remove">{{ app.user }}</h4>
+                            </div>
+                            <div class="uk-card-body uk-padding-small ">
+                                <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
+                                    <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i>
+                                            Admin</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                {% endblock %}
             </div>
-            {% block sidebar_menu %}
-                <div class="sidebar-menu uk-card uk-shadow-3d-dark">
-                    <div class="uk-card-header uk-background-primary-gd uk-box-shadow-small-b">
-                        <h4>Categories</h4>
-                    </div>
-                    <div class="uk-card-body uk-background-darker uk-padding-small">
-                        {{ main_menu }}
-                    </div>
-                </div>
-                <br/>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <div class="sidebar-menu uk-card uk-shadow-3d-tertiary uk-background-tertiary ">
-                        <div class="uk-card-header uk-background-danger-gd uk-box-shadow-small-b"">
-                            <h4 class="uk-margin-remove">{{ app.user }}</h4>
-                        </div>
-                        <div class="uk-card-body uk-padding-small ">
 
-                            <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
-                                <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i>
-                                        Admin</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endblock %}
-        </div>
-    {% endblock %}
-    <div class="content uk-width-expand@s">
-        {% block content %}
 
         {% endblock %}
-    </div>
-    {% block right_sidebar %}
-        <div class="left-sidebar uk-width-1-6@m uk-visible@xl">
+        <div class="content uk-width-expand">
+            {% block content %}
+
+
+            {% endblock %}
         </div>
-    {% endblock %}
-    {% endblock %}
+
+
+    </div>
+
+{% endblock %}
 </body>
 </html>

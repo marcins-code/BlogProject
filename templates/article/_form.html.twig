@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-width-expand@m">
+            <div class="uk-width-expand@m ">
 
                 <div data-uk-grid>
                     <div class="uk-width-expand">
@@ -39,9 +39,10 @@
                         {{ form_row((form.moviePath)) }}
                         {{ form_row((form.movies)) }}
                         {% if repo is defined %}
-                        {% for movie in repo.movies %}
-                            <video src="/movies/{{ repo.moviePath }}/{{ movie }}.mp4" controls   data-uk-video="autoplay: false" class="uk-margin-small-bottom"></video>
-                        {% endfor %}
+                            {% for movie in repo.movies %}
+                                <video src="/movies/{{ repo.moviePath }}/{{ movie }}.mp4" controls
+                                       data-uk-video="autoplay: false" class="uk-margin-small-bottom"></video>
+                            {% endfor %}
                         {% endif %}
                     </div>
 

@@ -43,47 +43,52 @@
 
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
-    box-shadow:inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
   } @else {
     box-shadow: $top $left $blur $color;
   }
 }
 
 .uk-box-shadow-small {
-  @include box-shadow(0 ,2px, 4px,$black-50);
+  @include box-shadow(0, 2px, 4px, $black-50);
 }
+
 .uk-box-shadow-small-b {
-  @include box-shadow(0 ,2px, 2px,$black-30);
+  @include box-shadow(0, 2px, 2px, $black-30);
 }
-
-
-
-
-
-
-
 
 
 .uk-box-shadow-medium {
-  @include box-shadow(0 ,6px, 10px,$black-30);
+  @include box-shadow(0, 6px, 10px, $black-30);
 }
 
 
+article.uk-article {
+  margin: 20px 0 !important;
+  //margin-bottom: 40px !important;
+  border-radius: 10px;
+  padding: 20px 30px;
+background: rgba($white,.45);
 
 
 
 
+  //@include bg-gradient-3-make($white-10);
+  border-style: inset ;
+  border-color: $black-30;
+  border-width:  1px;
+  //@include box-shadow(0, 0, 12px, $black-50)
+  box-shadow: 0 0 3px $black-40 inset;
+}
 
 
+.uk-text-white {
+  color: $gray-100 !important;
 
-.uk-text-white{
-  color:$gray-100 !important;
-   input, select {
+  input, select {
     color: $gray-100 !important;
   }
 }
-
-
 
 .my-logo {
   //background-image: url("/images/logo/logo.png");
@@ -106,9 +111,11 @@
 
 
 }
+
 .my-logo:hover {
   background-size: 220px;
 }
+
 //
 //.uk-alert {
 //  //position: relative;
@@ -139,16 +146,14 @@
 }
 
 
-
 @each $color, $value in $theme-colors {
   .uk-divider-#{$color} {
-    border-color:  $value !important;
+    border-color: $value !important;
   }
 }
 
 
-[class^="uk-divider-"]
-{
+[class^="uk-divider-"] {
   border-style: solid;
   border-width: 1px;
   //@include box-shadow(0 ,2px, 4px,$black-50, true);
@@ -156,10 +161,9 @@
 }
 
 
-
 @each $color, $value in $theme-colors {
   .uk-alert-#{$color}:before, .uk-notification-message-#{$color}:before {
-    color:$value !important;
+    color: $value !important;
   }
 }
 
@@ -195,11 +199,11 @@
 //}
 
 
-.uk-alert:before,.uk-notification-message:before{
+.uk-alert:before, .uk-notification-message:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 2.2rem;
-  color:$white;
+  color: $white;
   width: 70px;
   @include bg-gradient-3-full-make($dark-plus);
   top: 0;
@@ -212,61 +216,63 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  @include box-shadow(2px , 0 ,2px, $black-50);
+  @include box-shadow(2px, 0, 2px, $black-50);
   border-right-style: inset;
   border-right-width: 2px;
 }
 
 
-
-.uk-alert, .uk-notification-message{
+.uk-alert, .uk-notification-message {
   background: $light;
   padding-left: 90px;
   text-shadow: 0px 1px px $black-60;
-  @include box-shadow(0,4px, 4px, $black-60);
+  @include box-shadow(0, 4px, 4px, $black-60);
   border-radius: 20px;
   overflow: hidden;
 }
 
 
-.uk-alert-danger, .uk-notification-message-danger{
-  color:$danger;
-  &:before{
+.uk-alert-danger, .uk-notification-message-danger {
+  color: $danger;
+
+  &:before {
     content: "\f071";
     border-right-color: $danger;
   }
 }
 
 
+.uk-alert-success, .uk-notification-message-success {
+  color: $success;
 
-
-.uk-alert-success, .uk-notification-message-success{
-  color:$success;
-  &:before{
+  &:before {
     content: "\f058";
     border-right-color: $success;
   }
 }
 
-.uk-alert-warning, .uk-notification-message-warning{
-  color:$warning;
-  &:before{
+.uk-alert-warning, .uk-notification-message-warning {
+  color: $warning;
+
+  &:before {
     content: "\f12a";
     border-right-color: $warning;
   }
 }
 
-.uk-alert-primary, .uk-notification-message-primary{
-  color:$primary;
-  &:before{
+.uk-alert-primary, .uk-notification-message-primary {
+  color: $primary;
+
+  &:before {
     content: "\f05a";
     border-right-color: $primary;
   }
 }
 
-.uk-alert-info, .uk-notification-message-info{
-  color:$info;
-  &:before{
+.uk-alert-info, .uk-notification-message-info {
+  color: $info;
+
+  &:before {
     content: "\f05a";
     border-right-color: $info;
   }
@@ -279,18 +285,59 @@
   }
 }
 
-.uk-label{
-  color:$gray-100 !important;
+.uk-label {
+  color: $gray-100 !important;
   border-radius: 5px;
-  @include box-shadow(0,3px, 2px, $black-50)
+  @include box-shadow(0, 3px, 2px, $black-50)
 }
 
 
-
-.uk-table-center{
+.uk-table-center {
   tr {
-    th,td {
+    th, td {
       text-align: center;
     }
   }
+}
+
+
+.hljs-ln-numbers {
+  text-align: center;
+  margin-right: 15px;
+  padding-right: 10px !important;
+  color: #525252;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0 !important;
+  background: #343434;
+  color: #bababa;
+  box-shadow: 0px 0px 3px rgba(0,0,0,.1);
+  margin: 2px 3px 7px 3px;
+  border-radius: 10px;
+  border: solid 1px $black-30;
+}
+
+
+td.hljs-ln-line.hljs-ln-numbers {
+  border-right: 1px inset $black-60;
+  background: $black-60;
+  text-align: center;
+  padding-left: 10px;
+  color: $gray-300;
+}
+
+td.hljs-ln-line.hljs-ln-code
+{
+  padding-left:15px;
 }

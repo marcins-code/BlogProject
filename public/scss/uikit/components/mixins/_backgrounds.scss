@@ -1,6 +1,6 @@
 @mixin bg-gradient-make( $color) {
   background: $color linear-gradient(180deg, $color, darken($color,5%)) repeat-x !important;
-  * {
+  *{
     color: color-yiq(darken($color, 15%)) !important;
   }
 }
@@ -18,3 +18,6 @@
     color: color-yiq(darken($color, 15%)) !important;
   }
 }
+
+
+

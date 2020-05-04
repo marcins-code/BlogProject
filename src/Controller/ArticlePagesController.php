@@ -37,9 +37,9 @@ class ArticlePagesController extends AbstractController
     {
         $article = $articleRepository->findOneBy(['slug'=>$slug]);
 //        dd($article);
-
+        $article ? $title = $article->getTitle() : $title='';
         return $this->render('articles_pages/article.html.twig',[
-            'title'=>$article->getTitle(),
+            'title'=>$title,
             'article'=>$article,
         ]);
     }
