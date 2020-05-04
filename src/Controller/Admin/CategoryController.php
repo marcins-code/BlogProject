@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Form\Helper\ButtonClickRedirect;
 
 /**
  * @Route("/admin/category")
@@ -41,7 +40,7 @@ class CategoryController extends AbstractController
     /**
      * @Route("/new", name="category_new", methods={"GET","POST"})
      */
-    public function new(Request $request, ButtonClickRedirect $clickRedirect): Response
+    public function new(Request $request): Response
     {
         $category = new Category();
         $form = $this->createForm(CategoryFormType::class, $category);
