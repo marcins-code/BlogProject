@@ -25,7 +25,7 @@ class CategoryController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository, PaginatorInterface $paginator, Request $request): Response
     {
-     $query = $categoryRepository->findBy([], ['id'=>'ASC'])   ;
+        $query = $categoryRepository->findBy([], ['id' => 'ASC']);
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
@@ -34,7 +34,7 @@ class CategoryController extends AbstractController
 
         return $this->render('category/index.html.twig', [
             'pagination' => $pagination,
-            'title'=>'Categories'
+            'title' => 'Categories'
         ]);
     }
 
@@ -52,10 +52,10 @@ class CategoryController extends AbstractController
             $entityManager->persist($category);
             $entityManager->flush();
 
+
             if ($form->get('save')->isClicked()) {
                 return $this->redirectToRoute('category_edit', ['id' => $category->getId()]);
             }
-
 
             if ($form->get('save_exit')->isClicked()) {
 
@@ -127,4 +127,6 @@ class CategoryController extends AbstractController
 
         return $this->redirectToRoute('category_index');
     }
+
+
 }
