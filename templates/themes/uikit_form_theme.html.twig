@@ -28,11 +28,15 @@
         {%- endif -%}
     {%- endif -%}
     <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>
-        {% if icon_before is defined and icon_before is not null %}
+        {% if icon_before is defined and icon_before is not empty %}
             <i class="fa {{ icon_before }}"></i>
         {% endif %}
-        {{ translation_domain is same as(false) or label is same as(false) ? label : label|trans(label_translation_parameters, translation_domain) }}
-        {% if icon_after is defined and icon_after is not null %}
+
+<span class="  {% if only_icon is not same as (false)%} uk-hidden {% endif %}">
+            {{ translation_domain is same as(false) or label is same as(false) ? label : label|trans(label_translation_parameters, translation_domain) }}
+
+</span>
+        {% if icon_after is defined and icon_after is not empty %}
             <i class="fa {{ icon_after }}"></i>
         {% endif %}
     </button>

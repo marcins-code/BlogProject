@@ -64,6 +64,7 @@ class ArticleType extends AbstractType
             ->add('save', SubmitType::class, [
                 'label' => 'Save',
                 'icon_before' => 'far fa-save',
+                'only_icon'=>true,
                 'attr' => ['class' => 'uk-button-success']
             ])
             ->add('save_exit', SubmitType::class, [

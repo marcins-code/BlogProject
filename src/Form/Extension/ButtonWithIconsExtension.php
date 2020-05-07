@@ -27,13 +27,15 @@ class ButtonWithIconsExtension extends AbstractTypeExtension
     {
         $view->vars['icon_before'] = $options['icon_before'] ?? '';
         $view->vars['icon_after'] = $options['icon_after'] ?? '';
+        $view->vars['only_icon'] = $options['only_icon'] ?? '';
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'icon_before' => null,
-            'icon_after' => null
+            'icon_after' => null,
+            'only_icon' => false,
         ]);
     }
 }

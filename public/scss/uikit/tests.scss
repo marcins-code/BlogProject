@@ -68,15 +68,13 @@ article.uk-article {
   //margin-bottom: 40px !important;
   border-radius: 10px;
   padding: 20px 30px;
-background: rgba($white,.45);
-
-
+  background: rgba($white, .45);
 
 
   //@include bg-gradient-3-make($white-10);
-  border-style: inset ;
+  border-style: inset;
   border-color: $black-30;
-  border-width:  1px;
+  border-width: 1px;
   //@include box-shadow(0, 0, 12px, $black-50)
   box-shadow: 0 0 3px $black-40 inset;
 }
@@ -322,7 +320,7 @@ background: rgba($white,.45);
   padding: 0 !important;
   background: #343434;
   color: #bababa;
-  box-shadow: 0px 0px 3px rgba(0,0,0,.1);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, .1);
   margin: 2px 3px 7px 3px;
   border-radius: 10px;
   border: solid 1px $black-30;
@@ -337,7 +335,162 @@ td.hljs-ln-line.hljs-ln-numbers {
   color: $gray-300;
 }
 
-td.hljs-ln-line.hljs-ln-code
-{
-  padding-left:15px;
+td.hljs-ln-line.hljs-ln-code {
+  padding-left: 15px;
 }
+
+//
+//.uk-button-circle {
+//  border-radius: 50%;
+//}
+
+
+//.uk-button-circle {
+//  cursor: pointer;
+//  color: #fff;
+//  position: relative;
+//  z-index: 99999;
+//  top: 15px;
+//  left: 15px;
+//  border: none;
+//  box-shadow: none !important;
+//  background: transparent;
+//
+//  &:before {
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    height: 37px;
+//    width: 37px;
+//    padding: 1em;
+//    border-radius: 100%;
+//    content: "";
+//    background: rgb(125, 126, 125); /* Old browsers */
+//    /* FF3.6+ */
+//    /* Chrome,Safari4+ */
+//    /* Chrome10+,Safari5.1+ */
+//    //background: linear-gradient(rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+//
+//    background: linear-gradient($dark 0%, darken($dark, 20%) 100%);
+//    //z-index: 999;
+//    box-shadow: 0px 0px 10px 2px #666;
+//    border: 1px solid #000;
+//  }
+//
+//  &:after {
+//    position: absolute;
+//    top: 6px;
+//    left: 6px;
+//    content: "";
+//    height: 25px;
+//    width: 25px;
+//    padding: 1em;
+//    border-radius: 100%;
+//    background: rgb(14, 14, 14);
+//    background: linear-gradient(darken($dark, 20%) 0%, $dark 100%);
+//
+//    border: 1px solid #000;
+//  }
+//
+//
+//  i {
+//    color: #fff;
+//    position: relative;;
+//    z-index: 99999;
+//    top: 15px;
+//    left: 1px;
+//    font-size: 1.8rem;
+//    text-shadow: 2px 2px 2px $black-60;
+//  }
+//    &:hover i{
+//      color: complement($dark);
+//    }
+//
+//  &:active{
+//    top: 17px;
+//    transition: 0.1s;
+//  }
+//  }
+
+
+
+
+
+
+
+
+
+
+
+
+.uk-button-circle-lg{
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: rgba($black-40,0.3);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-style: none;
+  text-align: center;
+  background: rgba($black,0.05);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.uk-button-circle-lg .fa {/*Button itself*/
+  position: absolute;
+  content: '';
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  vertical-align: middle;
+  left: 10px;
+  top: 9px;
+  border-radius: 50%;
+  font-size: 40px;
+  background-image: linear-gradient($white 0%, darken($white ,10%) 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+  border-bottom: solid 2px darken($white,16%);
+  text-shadow: 2px 2px 2px $black-20;
+}
+
+.uk-button-circle-lg:hover .fa{
+  box-shadow:  0 2px 4px  $black-40 ;
+  color: rgba($black-40,0.3);
+}
+
+
+
+//.btn .fa:active{
+//  //background-image: -webkit-linear-gradient($secondary 0%, lighten($secondary,20%) 100%);
+//  //box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+//  //border-bottom: solid 2px #d8d8d8;
+//}
+
+
+@mixin button-circle-make(
+  $background,
+  $border:$background,
+  $hover-background: darken($background, 5%),
+  $color:color-yiq(darken($hover-background,15%)),
+  $hover-color: color-yiq($hover-background)
+)
+{
+  color: $color;
+  .fa{
+    @include bg-gradient-make($background);
+    border-bottom: solid 2px darken($background,10%);
+      }
+
+  &:hover .fa{
+    color: $color;
+  }
+
+}
+@each $color, $value in $theme-colors {
+  .uk-button-circle-#{$color} {
+    @include button-circle-make($value, $value);
+  }
+}
+

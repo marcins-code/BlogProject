@@ -1,48 +1,4 @@
-{% block body %}
-<div class="uk-container-expand uk-flex" data-uk-grid>
 
-    {% block left_sidebar %}
-    <div class="left-sidebar uk-width-1-6@s uk-visible@s">
-        <div class="uk-navbar-right">
-            <h3 class="uk-margin-remove-bottom ">
 
-            </h3>
-        </div>
-        {% block sidebar_menu %}
-        <div class="sidebar-menu uk-card uk-shadow-3d-dark">
-            <div class="uk-card-header uk-background-primary-gd uk-box-shadow-small-b">
-                <h4>Categories</h4>
-            </div>
-            <div class="uk-card-body uk-background-darker uk-padding-small uk-text-light">
-                {{ main_menu }}
-            </div>
-        </div>
-        <br/>
-        {% if is_granted('ROLE_ADMIN') %}
-        <div class="sidebar-menu uk-card uk-shadow-3d-tertiary uk-background-tertiary ">
-            <div class="uk-card-header uk-background-danger-gd uk-box-shadow-small-b">
-                <h4 class="uk-margin-remove">{{ app.user }}</h4>
-            </div>
-            <div class="uk-card-body uk-padding-small ">
-                <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
-                    <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i>
-                        Admin</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    {% endblock %}
-</div>
-{% endblock %}
-<div class="content uk-width-2-3">
-    {% block content %}
+<button class="uk-button uk-button-large uk-button-circle uk-button-danger"><i class="far fa-save"></i></button>
 
-    {% endblock %}
-</div>
-{% block right_sidebar %}
-<div class="left-sidebar uk-width-1-4@m uk-visible@xl uk-flex-last">
-</div>
-{% endblock %}
-{% endblock %}

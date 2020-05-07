@@ -9,14 +9,13 @@
   //$active-background: darken($background, 10%),
   //$active-border: darken($border, 12.5%),
   //$active-color: color-yiq($active-background)
-) {
+)
+{
   color: $color;
   text-shadow: rgba(0,0,0,.5) 1px 1px;
   @include bg-gradient-make($background);
   border-color: darken($border,5%);
   @include myboxshadow($background,5,0px, 1px);
-
-
 
 
   // Disabled comes first so active can properly restyle
