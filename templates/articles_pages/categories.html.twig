@@ -1,15 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    {% for article in articles|batch(3) %}
+        <div class="uk-child-width-1-3@xl uk-grid-small  uk-margin-small-top" data-uk-grid>
+            {% for i in article %}
+                <div class="card-wrapper">
+                    <div class="uk-card">
+                        <div class="uk-card-header uk-background-info-gd">
+                            <h3 class="uk-article-title">
+                                <a class="uk-link-reset" href="{{ path('article_view', {slug:i.slug}) }}">
+                                    <i class="{{ i.category.icon }}"></i>
+                                    {{ i.title }}</a>
+                            </h3>
+                        </div>
+                        <div class="uk-card-body uk-background-light">
+                            <i class="{{ i.category.icon }}"></i>
+                        </div>
+                        <div class="uk-card-footer uk-background-darker-gd">
+                            <a class="uk-button uk-button-dark "
+                               href="{{ path('article_view', {slug:i.slug}) }}">Read more</a>
+                        </div>
+                    </div>
+                </div>
 
-    {% for article in articles %}
-        <div>
-            <h2 class="uk-text-secondary uk-margin-small-bottom"> {{ article.title }}</h2>
-{#            <div class="uk-margin-remove">{{ article.content |ellipsis(500)|raw }}</div>#}
-            <a class="uk-button  uk-button-info uk-button-rounded uk-margin-small-top"
-               href="{{ path('article_view', {'slug':article.slug}) }}"><i class="far fa-bookmark"></i> Read more</a>
+            {% endfor %}
         </div>
-        <hr class="uk-divider-dark"/>
+        <hr/>
     {% endfor %}
-    {#{{ dump() }}#}
 {% endblock %}

@@ -27,9 +27,9 @@
 </head>
 <body>
 {% block body %}
-    <div class="uk-container-expand uk-flex" data-uk-grid>
+    <div class="uk-container uk-container-large " >
 
-
+<div  data-uk-grid>
         {% block left_sidebar %}
             <div class="left-sidebar uk-width-1-6@s uk-visible@s">
                 {% block sidebar_menu %}
@@ -47,7 +47,7 @@
                             <div class="uk-card-header uk-background-danger-gd uk-box-shadow-small-b">
                                 <h4 class="uk-margin-remove">{{ app.user }}</h4>
                             </div>
-                            <div class="uk-card-body uk-padding-small ">
+                            <div class="uk-card-body uk-padding-remove  ">
                                 <ul class="uk-nav-default uk-nav-parent-icon uk-nav" data-uk-nav>
                                     <li class="first"><a href="{{ path('article_index') }}"> <i class="fas fa-cogs"></i>
                                             Admin</a>
@@ -71,7 +71,7 @@
 
 
     </div>
-
+    </div>
 {% endblock %}
 </body>
 </html>
